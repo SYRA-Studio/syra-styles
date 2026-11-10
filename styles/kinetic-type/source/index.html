@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:"Montserrat";src:url("fonts/montserrat-latin-wght-normal.woff2") format("woff2");font-weight:100 900;font-display:block}
+@font-face{font-family:"IBM Plex Sans Arabic";src:url("fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2") format("woff2");font-weight:700;font-display:block}
+:root{
+  --ground:#0D0D0B; --text:#F3EFE4; --main:#FF4B1F; --main-light:#FF7A52; --main-deep:#B8300F;
+  --accent:#D4FF3B; --accent-deep:#9FBF1F; --raised:#171611; --dim:#6E6A5F; --second:#8C877A;
+}
+html,body,#stage{margin:0;padding:0;width:1920px;height:1080px;overflow:hidden;background:var(--ground)}
+#stage{position:relative}
+.abs{position:absolute}
+.mask{position:absolute;overflow:hidden;display:flex;justify-content:center}
+.mask>.in{display:block;white-space:nowrap;will-change:transform}
+.ar{font-family:"IBM Plex Sans Arabic",sans-serif;font-weight:700;color:var(--text)}
+.en{font-family:"Montserrat",sans-serif;font-weight:900;text-transform:uppercase}
+.ar-title{left:0;width:1920px;top:90px;height:300px;padding:0;font-size:200px;line-height:300px}
+.en-title{left:0;width:1920px;top:410px;height:190px;font-size:150px;line-height:190px;letter-spacing:-0.02em;color:var(--main)}
+.en-title .in span{display:inline-block}
+.num{left:120px;top:170px;width:960px;height:420px;font-size:420px;line-height:420px;justify-content:flex-start;
+  color:var(--accent);letter-spacing:-0.03em;font-variant-numeric:tabular-nums}
+.bar{left:1110px;width:640px;height:10px;top:238px;background:var(--accent);transform-origin:100% 50%}
+.ar-words{left:1110px;width:640px;top:268px;height:210px;font-size:140px;line-height:210px}
+.en-words{left:1110px;width:640px;top:490px;height:110px;font-size:76px;line-height:110px;font-weight:800;color:var(--main)}
+#sky{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden}
+.tower{position:absolute;width:144px;background:var(--raised)}
+.tower div{height:38px;line-height:38px;font-family:"Montserrat",sans-serif;font-weight:800;font-size:30px;text-align:center;
+  text-transform:uppercase;color:var(--dim);white-space:nowrap}
+.tower div.lit{background:var(--main);color:var(--ground)}
+</style></head>
+<body>
+<div id="stage" data-composition-id="sample" data-start="0" data-duration="5" data-fps="30" data-width="1920" data-height="1080">
+  <div id="sky"></div>
+
+  <div class="mask ar-title ar" id="arTitleM"><span class="in" data-layout-allow-overflow data-layout-allow-occlusion id="arTitle" dir="rtl" lang="ar">مدينة ذكية</span></div>
+  <div class="mask en-title en" id="enTitleM"><span class="in" data-layout-allow-overflow data-layout-allow-occlusion id="enTitle" dir="ltr"><span>S</span><span>M</span><span>A</span><span>R</span><span>T</span><span>&nbsp;</span><span>C</span><span>I</span><span>T</span><span>Y</span></span></div>
+
+  <div class="mask num en" id="numM"><span class="in" data-layout-allow-overflow data-layout-allow-occlusion id="num" dir="ltr">0%</span></div>
+  <div class="abs bar" id="bar"></div>
+  <div class="mask ar-words ar" id="arWordsM"><span class="in" data-layout-allow-overflow data-layout-allow-occlusion id="arWords" dir="rtl" lang="ar">طاقة أقل</span></div>
+  <div class="mask en-words en" id="enWordsM"><span class="in" data-layout-allow-overflow data-layout-allow-occlusion id="enWords" dir="ltr">less energy</span></div>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script>
+  (function () {
+    var tl = gsap.timeline({ paused: true });
+
+    // ---- skyline of text towers (built from fixed numbers) ----
+    var heights = [270, 346, 232, 422, 308, 384, 194, 346, 270, 422];
+    var sets = [
+      ["SMART","CITY","GRID","LIGHT","ROAD","DATA"],
+      ["CITY","POWER","SMART","LINK","GRID","BUS"],
+      ["GRID","SMART","SOLAR","CITY","LINK","AIR"],
+      ["POWER","CITY","DATA","SMART","GRID","LIGHT"],
+      ["LINK","GRID","CITY","SMART","SOLAR","ROAD"],
+      ["SMART","LIGHT","POWER","CITY","DATA","LINK"],
+      ["CITY","AIR","GRID","SMART","ROAD","BUS"],
+      ["DATA","SMART","CITY","LIGHT","POWER","GRID"],
+      ["SOLAR","CITY","LINK","SMART","GRID","AIR"],
+      ["SMART","POWER","CITY","ROAD","DATA","LIGHT"]
+    ];
+    var sunk = [1, 3, 6, 8];                       // the 4 of 10 that use less energy
+    var sky = document.getElementById("sky");
+    var towers = [];
+    for (var i = 0; i < 10; i++) {
+      var t = document.createElement("div");
+      t.className = "tower";
+      t.style.left = (114 + i * 172) + "px";
+      t.style.top = (1080 - heights[i]) + "px";
+      t.style.height = heights[i] + "px";
+      var rows = Math.ceil(heights[i] / 38) + 1, html = "";
+      for (var r = 0; r < rows; r++) html += "<div" + (r === 0 ? ' class="lit"' : "") + ">" + sets[i][r % 6] + "</div>";
+      t.innerHTML = html;
+      sky.appendChild(t);
+      towers.push(t);
+      gsap.set(t, { y: heights[i] });
+    }
+
+    // ---- scene 1: the city and its name (0 - 2.2 s) ----
+    for (var i = 0; i < 10; i++) {
+      tl.to(towers[i], { y: 0, duration: 0.8, ease: "expo.out" }, 0.05 + i * 0.06);
+    }
+    gsap.set("#arTitle", { yPercent: 110 });
+    gsap.set("#enTitle span", { yPercent: 110 });
+    tl.to("#arTitle", { yPercent: 0, duration: 0.75, ease: "expo.out" }, 0.3);
+    tl.fromTo("#arTitle", { scale: 0.97 }, { scale: 1.02, duration: 1.7, ease: "none" }, 0.3);
+    tl.to("#enTitle span", { yPercent: 0, duration: 0.6, ease: "expo.out", stagger: 0.04 }, 0.7);
+    tl.to(towers[0].querySelector(".lit"), { backgroundColor: "#FF7A52", duration: 0.12 }, 0.7)
+      .to(towers[0].querySelector(".lit"), { backgroundColor: "#FF4B1F", duration: 0.3 }, 0.82);
+    // exit, upward
+    tl.to("#arTitle", { yPercent: -110, duration: 0.4, ease: "power3.in" }, 1.8);
+    tl.to("#enTitle span", { yPercent: -110, duration: 0.35, ease: "power3.in", stagger: 0.02 }, 1.78);
+
+    // ---- scene 2: the number (2.2 - 5.0 s) ----
+    gsap.set("#num", { yPercent: 110 });
+    gsap.set("#arWords", { yPercent: 110 });
+    gsap.set("#enWords", { yPercent: 110 });
+    gsap.set("#bar", { scaleX: 0 });
+    tl.to("#num", { yPercent: 0, duration: 0.7, ease: "expo.out" }, 2.25);
+    var c = { v: 0 }, numEl = document.getElementById("num");
+    tl.to(c, { v: 40, duration: 1.1, ease: "power3.out",
+      onUpdate: function () { numEl.textContent = Math.round(c.v) + "%"; } }, 2.25);
+    tl.to("#bar", { scaleX: 1, duration: 0.6, ease: "expo.out" }, 2.6);
+    tl.to("#arWords", { yPercent: 0, duration: 0.7, ease: "expo.out" }, 2.75);
+    tl.to("#enWords", { yPercent: 0, duration: 0.6, ease: "expo.out" }, 2.95);
+    // four towers sink and take the accent: the energy saved
+    sunk.forEach(function (k, n) {
+      var lit = towers[k].querySelector(".lit");
+      tl.to(towers[k], { y: heights[k] * 0.55, duration: 0.65, ease: "power3.inOut" }, 3.3 + n * 0.08);
+      tl.to(lit, { backgroundColor: "#D4FF3B", duration: 0.3 }, 3.3 + n * 0.08);
+    });
+
+    tl.set({}, {}, 5);
+    window.__timelines = window.__timelines || {};
+    window.__timelines["sample"] = tl;
+  })();
+  </script>
+</div>
+</body></html>

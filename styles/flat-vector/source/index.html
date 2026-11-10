@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:"Urbanist";src:url("fonts/urbanist-latin-wght-normal.woff2") format("woff2");font-weight:100 900;font-display:block}
+@font-face{font-family:"Plex Arabic";src:url("fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2") format("woff2");font-weight:500;font-display:block}
+@font-face{font-family:"Plex Arabic";src:url("fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2") format("woff2");font-weight:700;font-display:block}
+html,body,#stage{margin:0;width:1920px;height:1080px;overflow:hidden;background:#F6EFE2}
+#stage{position:relative}
+svg{position:absolute;left:0;top:0}
+.t{position:absolute;margin:0;white-space:nowrap;color:#14323A}
+.ar{font-family:"Plex Arabic",sans-serif;font-weight:700;direction:rtl;line-height:1.4}
+.en{font-family:"Urbanist",sans-serif;line-height:1.15}
+#titleAr{left:0;width:1920px;text-align:center;top:84px;font-size:148px}
+#titleEn{left:0;width:1920px;text-align:center;top:290px;font-size:128px;font-weight:800}
+#num{right:220px;top:50px;font-size:300px;font-weight:800;letter-spacing:-0.02em;line-height:.95;color:#D9472B;direction:ltr;text-align:right}
+#lessAr{right:220px;top:352px;font-size:96px;text-align:right}
+#lessEn{right:220px;top:500px;font-size:84px;font-weight:700;text-align:right}
+</style></head>
+<body>
+<div id="stage" data-composition-id="sample" data-start="0" data-duration="5" data-fps="30" data-width="1920" data-height="1080">
+  <svg id="art" width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+    <g id="sun"><g id="rays"></g><circle id="sunDisc" cx="1560" cy="470" r="100" fill="#FFC93C"/></g>
+    <g id="cloudA"><g id="cloudAin"><rect x="90" y="120" width="190" height="52" rx="26" fill="#FFFFFF"/><circle cx="160" cy="118" r="38" fill="#FFFFFF"/><circle cx="212" cy="128" r="28" fill="#FFFFFF"/></g></g>
+    <g id="cloudB"><g id="cloudBin"><rect x="1330" y="250" width="170" height="46" rx="23" fill="#FFFFFF"/><circle cx="1395" cy="248" r="34" fill="#FFFFFF"/><circle cx="1445" cy="258" r="25" fill="#FFFFFF"/></g></g>
+    <g id="cityShift" data-layout-allow-overflow>
+      <g id="hills"></g>
+      <g id="ground"><rect x="0" y="880" width="1920" height="400" fill="#0F5C63"/><rect x="0" y="880" width="1920" height="22" fill="#1F8A8A"/></g>
+      <g id="blds"></g>
+      <g id="wins"></g>
+      <g id="trees"></g>
+    </g>
+    <g id="donut">
+      <circle id="dTrack" cx="520" cy="330" r="190" fill="none" stroke="#1F8A8A" stroke-width="80" stroke-dasharray="0 2000" transform="rotate(-90 520 330)"/>
+      <circle id="dArc" cx="520" cy="330" r="190" fill="none" stroke="#FF6B4A" stroke-width="80" stroke-dasharray="0 2000" transform="rotate(-90 520 330)"/>
+      <circle id="dDisc" cx="520" cy="330" r="118" fill="#0F5C63"/>
+      <polygon id="bolt" points="540,258 480,342 516,342 502,404 562,318 526,318" fill="#FFC93C"/>
+    </g>
+  </svg>
+  <h1 class="t ar" id="titleAr" dir="rtl" lang="ar">مدينة ذكية</h1>
+  <p class="t en" id="titleEn">Smart City</p>
+  <p class="t en" id="num" dir="ltr">40%</p>
+  <p class="t ar" id="lessAr" dir="rtl" lang="ar">طاقة أقل</p>
+  <p class="t en" id="lessEn">less energy</p>
+  <script src="vendor/gsap.min.js"></script>
+  <script>
+  (function () {
+    var NS = "http://www.w3.org/2000/svg";
+    function mk(p, tag, a) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); p.appendChild(e); return e; }
+    var GY = 880, LIT = "#FFC93C";
+    var UNLIT = { "#6CC5BC": "#1F8A8A", "#1F8A8A": "#0F5C63", "#0F5C63": "#14323A", "#FF6B4A": "#D9472B" };
+    var tl = gsap.timeline({ paused: true });
+
+    var rays = document.getElementById("rays");
+    for (var r = 0; r < 12; r++) mk(rays, "rect", { x: 1560 - 9, y: 470 - 168, width: 18, height: 42, rx: 9, fill: "#FFC93C", transform: "rotate(" + (r * 30) + " 1560 470)" });
+
+    var hills = document.getElementById("hills");
+    var h1 = mk(hills, "ellipse", { cx: 480, cy: 900, rx: 760, ry: 250, fill: "#CFE9E4" });
+    var h2 = mk(hills, "ellipse", { cx: 1500, cy: 910, rx: 700, ry: 210, fill: "#CFE9E4" });
+
+    var B = [
+      [120,150,230,"#1F8A8A"],[290,120,330,"#0F5C63"],[430,170,190,"#6CC5BC"],[620,130,280,"#1F8A8A"],
+      [770,190,330,"#FF6B4A"],[980,140,250,"#0F5C63"],[1140,170,310,"#6CC5BC"],[1330,130,210,"#1F8A8A"],
+      [1480,180,340,"#0F5C63"],[1680,130,240,"#1F8A8A"]
+    ];
+    var blds = document.getElementById("blds"), wins = document.getElementById("wins");
+    var bEls = [], winEls = [], offEls = [], k = 0;
+    B.forEach(function (b, i) {
+      var x = b[0], w = b[1], h = b[2], c = b[3];
+      var e = mk(blds, "rect", { x: x, y: GY - h, width: w, height: h + 4, rx: 14, fill: c });
+      e._o = (x + w / 2) + " " + GY; bEls.push(e);
+      if (i === 4) {
+        var a = mk(blds, "rect", { x: x + w / 2 - 6, y: GY - h - 46, width: 12, height: 60, rx: 6, fill: "#FF6B4A" });
+        a._o = (x + w / 2) + " " + (GY - h + 10); bEls.push(a);
+        var d = mk(blds, "circle", { cx: x + w / 2, cy: GY - h - 52, r: 16, fill: "#FFC93C" });
+        d._o = (x + w / 2) + " " + (GY - h - 52); bEls.push(d);
+      }
+      var cols = Math.floor((w - 24) / 40), rows = Math.floor((h - 50) / 54);
+      var ox = x + (w - (cols * 40 - 14)) / 2;
+      for (var j = 0; j < rows; j++) for (var q = 0; q < cols; q++) {
+        var lit = ((q * 7 + j * 3 + i) % 3) !== 0;
+        var wc = mk(wins, "rect", { x: ox + q * 40, y: GY - h + 26 + j * 54, width: 26, height: 32, rx: 7, fill: lit ? LIT : UNLIT[c] });
+        wc._o = (ox + q * 40 + 13) + " " + (GY - h + 26 + j * 54 + 16);
+        winEls.push(wc);
+        if (lit) { k++; if (k % 5 === 1 || k % 5 === 3) offEls.push({ el: wc, to: UNLIT[c] }); }
+      }
+    });
+
+    var trees = document.getElementById("trees"), tEls = [];
+    [90, 715, 1318, 1855].forEach(function (x, i) {
+      var g = mk(trees, "g", {});
+      mk(g, "rect", { x: x - 7, y: GY - 46, width: 14, height: 60, rx: 7, fill: "#14323A" });
+      mk(g, "circle", { cx: x, cy: GY - 74, r: 42, fill: i % 2 ? "#6CC5BC" : "#1F8A8A" });
+      g._o = x + " " + (GY + 6); tEls.push(g);
+    });
+
+    var ease = "back.out(1.5)";
+    tl.from("#ground", { y: 260, duration: 0.55, ease: "expo.out" }, 0);
+    tl.from(h1, { scaleY: 0, svgOrigin: "480 " + GY, duration: 0.6, ease: "back.out(1.2)" }, 0.05);
+    tl.from(h2, { scaleY: 0, svgOrigin: "1500 " + GY, duration: 0.6, ease: "back.out(1.2)" }, 0.12);
+    bEls.forEach(function (e, i) { tl.from(e, { scale: 0, svgOrigin: e._o, duration: 0.55, ease: ease }, 0.15 + i * 0.06); });
+    winEls.forEach(function (e, i) { tl.from(e, { scale: 0, svgOrigin: e._o, duration: 0.3, ease: "back.out(2)" }, 0.75 + (i % 40) * 0.012); });
+    tEls.forEach(function (e, i) { tl.from(e, { scale: 0, svgOrigin: e._o, duration: 0.45, ease: ease }, 0.85 + i * 0.07); });
+    tl.from("#sun", { scale: 0, svgOrigin: "1560 470", duration: 0.6, ease: "back.out(1.7)" }, 0.3);
+    tl.from("#cloudA", { scale: 0, svgOrigin: "185 150", duration: 0.5, ease: ease }, 0.5);
+    tl.from("#cloudB", { scale: 0, svgOrigin: "1415 275", duration: 0.5, ease: ease }, 0.6);
+    tl.to("#rays", { rotation: 90, svgOrigin: "1560 470", duration: 5, ease: "none" }, 0);
+    tl.to("#cloudAin", { x: 60, duration: 5, ease: "none" }, 0);
+    tl.to("#cloudBin", { x: -70, duration: 5, ease: "none" }, 0);
+
+    tl.from("#titleAr", { y: 44, scale: 0.9, opacity: 0, duration: 0.55, ease: "back.out(1.4)" }, 0.5);
+    tl.from("#titleEn", { y: 44, scale: 0.9, opacity: 0, duration: 0.55, ease: "back.out(1.4)" }, 0.68);
+    tl.to("#titleAr", { y: -60, opacity: 0, duration: 0.3, ease: "power2.in" }, 1.9);
+    tl.to("#titleEn", { y: -60, opacity: 0, duration: 0.3, ease: "power2.in" }, 1.95);
+
+    tl.to("#sun", { scale: 0, svgOrigin: "1560 470", duration: 0.3, ease: "power2.in" }, 1.95);
+    tl.to("#cloudB", { scale: 0, svgOrigin: "1415 275", duration: 0.3, ease: "power2.in" }, 2.0);
+    tl.to("#cityShift", { y: 150, duration: 0.6, ease: "back.out(1.2)" }, 2.1);
+    offEls.forEach(function (o, i) { tl.to(o.el, { attr: { fill: o.to }, duration: 0.2 }, 2.9 + i * 0.03); });
+
+    var C = 2 * Math.PI * 190, track = document.getElementById("dTrack"), arc = document.getElementById("dArc");
+    var tp = { v: 0 }, ap = { v: 0 };
+    tl.from("#dDisc", { scale: 0, svgOrigin: "520 330", duration: 0.5, ease: "back.out(1.6)" }, 2.3);
+    tl.to(tp, { v: 1, duration: 0.7, ease: "power2.out", onUpdate: function () { track.setAttribute("stroke-dasharray", (tp.v * C) + " 2000"); } }, 2.35);
+    tl.to(ap, { v: 0.4, duration: 0.8, ease: "power2.out", onUpdate: function () { arc.setAttribute("stroke-dasharray", (ap.v * C) + " 2000"); } }, 2.85);
+    tl.from("#bolt", { scale: 0, svgOrigin: "520 330", duration: 0.5, ease: "back.out(2)" }, 3.2);
+
+    var nEl = document.getElementById("num"), np = { n: 0 };
+    tl.from("#num", { y: 50, scale: 0.9, opacity: 0, duration: 0.5, ease: "back.out(1.4)", transformOrigin: "100% 50%" }, 2.5);
+    tl.to(np, { n: 40, duration: 0.9, ease: "power2.out", onUpdate: function () { nEl.textContent = Math.round(np.n) + "%"; } }, 2.7);
+    tl.to("#num", { scale: 1.06, duration: 0.15, ease: "power2.out", transformOrigin: "100% 50%" }, 3.65);
+    tl.to("#num", { scale: 1, duration: 0.25, ease: "back.out(2)", transformOrigin: "100% 50%" }, 3.8);
+    tl.from("#lessAr", { y: 44, scale: 0.9, opacity: 0, duration: 0.55, ease: "back.out(1.4)", transformOrigin: "100% 50%" }, 2.7);
+    tl.from("#lessEn", { y: 44, scale: 0.9, opacity: 0, duration: 0.55, ease: "back.out(1.4)", transformOrigin: "100% 50%" }, 2.8);
+
+    tl.set({}, {}, 5);
+    window.__timelines = window.__timelines || {};
+    window.__timelines["sample"] = tl;
+  })();
+  </script>
+</div>
+</body></html>

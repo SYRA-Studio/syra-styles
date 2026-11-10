@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: "Urbanist"; src: url("fonts/urbanist-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+  @font-face { font-family: "Plex Arabic"; src: url("fonts/ibm-plex-sans-arabic-arabic-300-normal.woff2") format("woff2"); font-weight: 300; font-display: block; }
+  @font-face { font-family: "Plex Arabic"; src: url("fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2") format("woff2"); font-weight: 400; font-display: block; }
+
+  html, body, #stage { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #F6F1E7; }
+  #stage { position: relative; }
+  svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+
+  /* Every text box carries side padding: a mask stops at the box, and must never nip a glyph. */
+  .t { position: absolute; color: #1A1A1A; white-space: nowrap; margin: 0; padding: 0 24px; visibility: hidden; }
+  .en { font-family: "Urbanist"; }
+  .ar { font-family: "Plex Arabic"; line-height: 1.35; }
+
+  #titleAr  { right: 116px; top: 668px; font-size: 96px; font-weight: 300; }
+  #titleEn  { right: 116px; top: 806px; font-size: 84px; font-weight: 300; line-height: 1.1; }
+  #num      { left: 316px; top: 278px; width: 560px; padding: 0; text-align: center; font-family: "Urbanist"; font-size: 220px; font-weight: 300; line-height: 240px; }
+  #subAr    { right: 1226px; top: 612px; font-size: 54px; font-weight: 400; }
+  #subEn    { right: 1226px; top: 690px; font-size: 44px; font-weight: 400; line-height: 1.2; }
+</style></head>
+<body>
+<div id="stage" data-composition-id="sample" data-start="0" data-duration="5" data-fps="30" data-width="1920" data-height="1080">
+
+  <!-- Accent: separate flat fills behind everything, all shifted the same way, like one colour plate printed out of register. -->
+  <svg viewBox="0 0 1920 1080" aria-hidden="true">
+    <circle id="sun" cx="1189" cy="258" r="88" fill="#E4572E" visibility="hidden"/>
+    <path id="blob" fill="#E4572E" visibility="hidden"
+      d="M640 594 C500 600 292 540 288 398 C284 280 440 204 596 200 C770 196 908 270 905 396 C903 500 780 590 640 594 Z"/>
+  </svg>
+
+  <h1 id="titleAr" class="t ar" dir="rtl" lang="ar">مدينة ذكية</h1>
+  <h1 id="titleEn" class="t en" dir="ltr">Smart City</h1>
+
+  <p id="num" class="t" dir="ltr">40%</p>
+  <p id="subAr" class="t ar" dir="rtl" lang="ar">طاقة أقل</p>
+  <p id="subEn" class="t en" dir="ltr">less energy</p>
+
+  <!-- The one line of the whole video. It enters off the right edge, draws the city, leaves through the bottom edge,
+       comes straight back up, circles the number and leaves off the left edge. -->
+  <svg viewBox="0 0 1920 1080" aria-hidden="true">
+    <path id="line" pathLength="1" fill="none" stroke="#1A1A1A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"
+      stroke-dasharray="0 2" stroke-dashoffset="0"
+      d="M1990 650 C1923.4 645 1856.6 645.2 1790 641 C1788.7 640.9 1787.3 640.8 1786 640.7 C1780.5 640.3 1776.1 635.5 1776.2 630 C1780.1 587.4 1776.1 544.6 1778.8 502 C1778.9 496.5 1774.5 492.2 1769 492.3 C1736.7 495.4 1704.3 493.4 1672 495.7 C1666.5 495.8 1662.1 491.5 1662.1 486 C1665.7 439.4 1661.5 392.6 1663.9 346 C1664 341.6 1660.4 337.6 1656 337.2 C1654.6 338.1 1653.4 336.3 1652 336.8 C1647.6 336.4 1644.1 332.4 1644.1 328 C1646.4 310.7 1643.4 293.3 1644.9 276 C1644.9 271.6 1641.4 267.7 1637 267.4 C1631.4 266.4 1625.7 266.8 1620 266 C1616.3 242.2 1611.4 218.7 1607.5 195 C1607.2 193.3 1606.8 193.3 1606.5 195 C1601.8 218.5 1598.5 242.4 1594 266 C1590 265.7 1586 266.7 1582 266.6 C1577.6 266.8 1574.1 270.6 1574.1 275 C1572.4 293.4 1575.8 311.7 1574.9 330 C1574.9 334.4 1571.4 337.8 1567 337.6 C1566 338.5 1565 336.9 1564 337.4 C1559.6 337.2 1555.9 340.6 1555.9 345 C1551 400.6 1556.4 456.4 1553.1 512 C1553.1 516.4 1549.4 520.1 1545 520.3 C1528.9 519.4 1513 522.3 1497 522 C1497 470 1465 424 1425 422 C1385 420 1353 470 1353 522 C1347.4 520.8 1341.6 522.1 1336 521.3 C1331.6 521.1 1327.9 517.4 1327.9 513 C1330.3 478 1325 443 1326.2 408 C1326.1 401.4 1320.6 395.3 1314.1 394.5 C1296.9 390.9 1279.3 391.1 1262 388 C1220 382 1122 348 1118 270 C1116 222 1157 183 1205 183 C1253 183 1292 222 1292 270 C1292 322 1246 348 1195 360 C1172 365.5 1158 440 1105 442 C1092.1 439.5 1078.9 442.1 1066 440.4 C1060.5 440.2 1055.9 444.5 1055.8 450 C1051.6 509.3 1055.2 568.7 1052.2 628 C1052.1 634.6 1046.7 640.8 1040.1 641.8 C1035.3 641.6 1030.8 643.9 1026 644 C1000 650 994 700 993 800 C992 950 985 1060 975 1150 C968 1205 945 1205 940 1150 C925 1040 905 900 860 760 C825 650 770 590 640 594 C500 600 292 540 288 398 C284 280 440 204 596 200 C770 196 908 270 905 396 C903 470 850 540 790 610 C742 666 722 772 600 782 C500 790 420 788 350 786 C290 784 236 762 238 722 C240 684 300 672 322 712 C344 752 300 800 220 808 C120 818 20 800 -90 806 C-140 812 -190 815 -240 812"/>
+  </svg>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+
+      // ---- The line: a moving window of a single dash. head and tail are fractions of the path. ----
+      var line = document.getElementById("line");
+      var pen = { head: 0, tail: 0 };
+      function drawLine() {
+        line.setAttribute("stroke-dasharray", Math.max(pen.head - pen.tail, 0) + " 2");
+        line.setAttribute("stroke-dashoffset", -pen.tail);
+      }
+      // Nearly even, with a gentle sine.inOut: half constant speed, half sine, so it never crawls on screen.
+      var sine = gsap.parseEase("sine.inOut");
+      function nearlyEven(u) { return 0.5 * u + 0.5 * sine(u); }
+
+      tl.to(pen, { head: 1, duration: 4.45, ease: nearlyEven, onUpdate: drawLine }, 0);
+      // The tail starts as the city's time ends, and comes to rest off-frame below the picture.
+      tl.to(pen, { tail: 0.4655, duration: 1.20, ease: "sine.inOut", onUpdate: drawLine }, 2);
+
+      // ---- Text: a soft mask front that moves the way the line moves (right to left), revealing or hiding. ----
+      var SOFT = 22; // width of the soft edge, % of the box
+      function paint(el, s) {
+        var shown = s.show * (100 + SOFT), gone = s.hide * (100 + SOFT);
+        var a = Math.max(gone - SOFT, -SOFT), d = shown - SOFT;
+        el.style.visibility = shown <= 0 || gone >= 100 + SOFT ? "hidden" : "visible";
+        var m = "linear-gradient(to left, transparent " + a + "%, #000 " + gone + "%, #000 " + Math.max(d, gone) + "%, transparent " + Math.max(shown, gone) + "%)";
+        el.style.webkitMaskImage = m;
+        el.style.maskImage = m;
+        el.style.transform = "translateX(" + (1 - s.show) * 16 + "px)";
+      }
+      function text(id, inAt, outAt) {
+        var el = document.getElementById(id), s = { show: 0, hide: 0 };
+        var redraw = function () { paint(el, s); };
+        tl.to(s, { show: 1, duration: 0.4, ease: "sine.out", onUpdate: redraw }, inAt);
+        if (outAt) tl.to(s, { hide: 1, duration: 0.4, ease: "sine.in", onUpdate: redraw }, outAt);
+      }
+
+      // ---- Every time below is when the line actually gets there. ----
+      text("titleAr", 1.08, 2.2);
+      text("titleEn", 1.14, 2.24);
+      text("num",     2.46);
+      text("subAr",   2.8);
+      text("subEn",   2.86);
+
+      // Accent shapes pop in 0.1 s after the line closes round them; the sun goes when the tail undraws its circle.
+      gsap.set("#sun",  { svgOrigin: "1189 258", scale: 0.6 });
+      gsap.set("#blob", { svgOrigin: "596 397", x: -16, y: -12, scale: 0.75 });
+      tl.set("#sun", { visibility: "visible" }, 1.74);
+      tl.to("#sun", { scale: 1, duration: 0.22, ease: "back.out(1.7)" }, 1.74);
+      tl.to("#sun", { scale: 0.6, duration: 0.14, ease: "sine.in" }, 2.68);
+      tl.set("#sun", { visibility: "hidden" }, 2.82);
+      tl.set("#blob", { visibility: "visible" }, 3.4);
+      tl.to("#blob", { scale: 1, duration: 0.2, ease: "back.out(1.5)" }, 3.4);
+
+      tl.set({}, {}, 5);
+      drawLine();
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["sample"] = tl;
+    })();
+  </script>
+</div>
+</body></html>

@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<style>
+@font-face { font-family: "Montserrat"; src: url("fonts/montserrat-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+@font-face { font-family: "Plex Arabic"; src: url("fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2") format("woff2"); font-weight: 500; font-display: block; }
+@font-face { font-family: "Plex Arabic"; src: url("fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2") format("woff2"); font-weight: 700; font-display: block; }
+html, body, #stage { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #080B1C; }
+#stage { position: relative; color: #F7F9FF; font-family: "Montserrat", sans-serif; }
+.glow { position: absolute; border-radius: 50%; }
+#g1 { width: 900px; height: 900px; left: 80px;  top: -260px; background: radial-gradient(circle, rgba(109,76,255,.80) 0%, rgba(109,76,255,.40) 40%, rgba(109,76,255,0) 70%); }
+#g2 { width: 960px; height: 960px; left: 1000px; top: 120px; background: radial-gradient(circle, rgba(31,209,240,.70) 0%, rgba(31,209,240,.34) 40%, rgba(31,209,240,0) 70%); }
+#g3 { width: 800px; height: 800px; left: 460px; top: 520px; background: radial-gradient(circle, rgba(255,91,141,.72) 0%, rgba(255,91,141,.34) 42%, rgba(255,91,141,0) 70%); }
+
+.glass {
+  position: absolute; box-sizing: border-box; overflow: hidden;
+  -webkit-backdrop-filter: blur(28px) saturate(140%); backdrop-filter: blur(28px) saturate(140%);
+  background: linear-gradient(135deg, rgba(255,255,255,.15), rgba(255,255,255,.05));
+  border: 1.5px solid; border-color: rgba(255,255,255,.55) rgba(255,255,255,.14) rgba(255,255,255,.12) rgba(255,255,255,.42);
+  box-shadow: 0 24px 60px rgba(3,5,20,.5);
+}
+.glass::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(115deg, rgba(255,255,255,.16) 0%, rgba(255,255,255,0) 38%); }
+
+.tower { border-radius: 40px; }
+.slit { position: absolute; left: 50%; width: 46%; height: 14px; margin-left: -23%; border-radius: 7px;
+  background: linear-gradient(90deg, #FFE2A8, #FFC15E); box-shadow: 0 0 22px rgba(255,193,94,.7); opacity: 0; }
+
+#titlePanel { left: 410px; top: 150px; width: 1100px; height: 520px; border-radius: 56px; }
+#numPanel { left: 140px; top: 120px; width: 1640px; height: 560px; border-radius: 56px; }
+#troughPanel { left: 240px; top: 740px; width: 1440px; height: 190px; border-radius: 48px; }
+
+.txt { position: absolute; left: 0; right: 0; text-align: center; text-shadow: 0 2px 24px rgba(8,11,28,.55); white-space: nowrap; }
+.ar { font-family: "Plex Arabic", sans-serif; font-weight: 700; line-height: 1.4; }
+#tAr { top: 62px; font-size: 184px; }
+#tEn { top: 348px; font-size: 104px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; }
+
+#num { position: absolute; left: 0; top: 78px; width: 780px; text-align: center; font-weight: 800; font-size: 360px; line-height: 1.1;
+  text-shadow: 0 2px 24px rgba(8,11,28,.55); white-space: nowrap; }
+#num span.pc { font-size: 216px; }
+#divider { position: absolute; left: 800px; top: 120px; width: 2px; height: 320px; background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,.4), rgba(255,255,255,0)); }
+#eAr { left: 830px; right: 0; width: 760px; top: 108px; font-size: 140px; }
+#eEn { left: 830px; right: 0; width: 760px; top: 322px; font-size: 80px; font-weight: 600; color: #F7F9FF; line-height: 1.2; }
+
+#track { position: absolute; left: 60px; top: 63px; width: 1320px; height: 64px; border-radius: 32px;
+  background: rgba(8,11,28,.28); border: 1.5px solid rgba(255,255,255,.22); box-sizing: border-box; }
+#fill { position: absolute; left: 66px; top: 69px; height: 52px; width: 1308px; border-radius: 26px;
+  background: linear-gradient(90deg, #FFE2A8, #FFC15E); box-shadow: 0 0 60px rgba(255,193,94,.7); }
+#cut { position: absolute; top: 40px; height: 110px; width: 2px; background: rgba(255,255,255,.7); opacity: 0; }
+#gap { position: absolute; top: 69px; height: 52px; border-radius: 26px; border: 1.5px dashed rgba(255,255,255,.45); box-sizing: border-box; opacity: 0; }
+</style></head>
+<body>
+<div id="stage" data-composition-id="sample" data-start="0" data-duration="5" data-fps="30" data-width="1920" data-height="1080">
+  <div class="glow" id="g1" data-layout-allow-overflow></div>
+  <div class="glow" id="g2" data-layout-allow-overflow></div>
+  <div class="glow" id="g3" data-layout-allow-overflow></div>
+
+  <div id="city"></div>
+
+  <div class="glass" id="titlePanel">
+    <div class="txt ar" id="tAr" dir="rtl">مدينة ذكية</div>
+    <div class="txt" id="tEn" dir="ltr">Smart City</div>
+  </div>
+
+  <div class="glass" id="numPanel">
+    <div id="num" dir="ltr"><span id="numVal">40</span><span class="pc">%</span></div>
+    <div id="divider"></div>
+    <div class="txt ar" id="eAr" dir="rtl">طاقة أقل</div>
+    <div class="txt" id="eEn" dir="ltr">less energy</div>
+  </div>
+  <div class="glass" id="troughPanel">
+    <div id="track"></div>
+    <div id="gap"></div>
+    <div id="fill"></div>
+    <div id="cut"></div>
+  </div>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script>
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+
+      // towers: [left, width, height, depth(0 back / 1 front), slits]
+      var T = [
+        [150, 170, 360, 1, 2], [340, 150, 520, 0, 3], [520, 190, 300, 1, 2], [740, 160, 250, 0, 1],
+        [1030, 150, 290, 0, 1], [1210, 180, 340, 1, 2], [1420, 160, 540, 0, 3], [1600, 170, 400, 1, 2]
+      ];
+      var city = document.getElementById("city");
+      var towers = [], slitsAll = [];
+      T.forEach(function (t, i) {
+        var d = document.createElement("div");
+        d.className = "glass tower"; d.id = "tw" + i;
+        d.style.left = t[0] + "px"; d.style.width = t[1] + "px"; d.style.height = t[2] + "px"; d.style.top = (990 - t[2]) + "px";
+        for (var s = 0; s < t[4]; s++) {
+          var sl = document.createElement("div");
+          sl.className = "slit"; sl.id = "sl" + i + "_" + s;
+          sl.style.top = (46 + s * 66 + ((i * 37) % 30)) + "px";
+          d.appendChild(sl); slitsAll.push(sl.id);
+        }
+        city.appendChild(d); towers.push(d.id);
+      });
+
+      // initial hidden states
+      gsap.set("#city .tower", { opacity: 0.35, y: 110 });
+      gsap.set("#titlePanel", { opacity: 0.4, y: 60 });
+      gsap.set("#tAr, #tEn", { opacity: 0.7, y: 14 });
+      gsap.set("#numPanel", { opacity: 0, y: 90 });
+      gsap.set("#troughPanel", { opacity: 0, y: 90 });
+      gsap.set("#num, #eAr, #eEn", { opacity: 0, y: 24 });
+      gsap.set("#divider", { opacity: 0 });
+      gsap.set("#track", { opacity: 0 });
+      gsap.set("#fill", { opacity: 0 });
+
+      // living colour field behind everything
+      tl.to("#g1", { x: 90, y: 60, duration: 5, ease: "sine.inOut" }, 0);
+      tl.to("#g2", { x: -80, y: -40, duration: 5, ease: "sine.inOut" }, 0);
+      tl.to("#g3", { x: 70, y: -60, duration: 5, ease: "sine.inOut" }, 0);
+
+      // idea 1: the city. towers rise back to front, then the title panel lands on top
+      T.forEach(function (t, i) {
+        var order = [1, 6, 0, 4, 2, 5, 3, 7][i];
+        var op = t[3] ? 1 : 0.8;
+        tl.to("#tw" + i, { opacity: op, y: 0, duration: 1.0, ease: "expo.out" }, 0.0 + order * 0.07);
+      });
+      slitsAll.forEach(function (id, k) {
+        tl.to("#" + id, { opacity: 0.9, duration: 0.5, ease: "power2.out" }, 0.8 + k * 0.06);
+      });
+      tl.to("#titlePanel", { opacity: 1, y: 0, duration: 0.9, ease: "expo.out" }, 0.15);
+      tl.to("#tAr", { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 0.3);
+      tl.to("#tEn", { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 0.42);
+
+      // the title drifts up and away; the city sinks to the back layer
+      tl.to("#tAr, #tEn", { opacity: 0, y: -30, duration: 0.45, ease: "power2.in" }, 2.2);
+      tl.to("#titlePanel", { opacity: 0, y: -80, duration: 0.55, ease: "power2.in" }, 2.25);
+      T.forEach(function (t, i) {
+        tl.to("#tw" + i, { opacity: t[3] ? 0.55 : 0.4, y: 60, duration: 0.8, ease: "power2.inOut" }, 2.2);
+      });
+
+      // idea 2: the number, shown as light draining from a glass trough
+      tl.to("#numPanel", { opacity: 1, y: 0, duration: 0.9, ease: "expo.out" }, 2.4);
+      tl.to("#troughPanel", { opacity: 1, y: 0, duration: 0.9, ease: "expo.out" }, 2.52);
+      tl.to("#num", { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 2.55);
+      tl.to("#divider", { opacity: 1, duration: 0.5, ease: "power2.out" }, 2.7);
+      tl.to("#eAr", { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 2.62);
+      tl.to("#eEn", { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 2.72);
+      tl.to("#track", { opacity: 1, duration: 0.5 }, 2.8);
+      tl.to("#fill", { opacity: 1, duration: 0.5 }, 2.85);
+
+      // count and drain share one tweened value
+      var st = { v: 0 };
+      var numEl = document.getElementById("numVal");
+      var fill = document.getElementById("fill");
+      var gap = document.getElementById("gap");
+      var cut = document.getElementById("cut");
+      function draw() {
+        var w = 1308 * (1 - st.v / 100);
+        numEl.textContent = Math.round(st.v);
+        fill.style.width = w + "px";
+        gap.style.left = (66 + w) + "px";
+        gap.style.width = (1308 - w) + "px";
+        cut.style.left = (66 + w) + "px";
+      }
+      draw();
+      gsap.set("#num", { opacity: 0 });
+      tl.to(st, { v: 40, duration: 1.2, ease: "power2.inOut", onUpdate: draw }, 2.95);
+      tl.to("#gap", { opacity: 1, duration: 0.4 }, 3.2);
+      tl.to("#cut", { opacity: 0.8, duration: 0.4 }, 3.8);
+
+      tl.set({}, {}, 5);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["sample"] = tl;
+    })();
+  </script>
+</div>
+</body></html>

@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><style>
+@font-face{font-family:"Montserrat";src:url("fonts/montserrat-latin-wght-normal.woff2") format("woff2");font-weight:100 900;font-display:block}
+@font-face{font-family:"JetBrains Mono";src:url("fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2");font-weight:100 800;font-display:block}
+@font-face{font-family:"IBM Plex Sans Arabic";src:url("fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2") format("woff2");font-weight:600;font-display:block}
+@font-face{font-family:"IBM Plex Sans Arabic";src:url("fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2") format("woff2");font-weight:700;font-display:block}
+html,body{margin:0;padding:0;width:1920px;height:1080px;overflow:hidden;background:#0F3D73}
+#stage{position:relative;width:1920px;height:1080px;overflow:hidden;background-color:#0F3D73;
+  background-image:radial-gradient(ellipse 75% 80% at 50% 48%,#11447F 0%,#0F3D73 55%,#0A2D58 100%)}
+svg.layer{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:visible}
+.t{position:absolute;right:90px;display:flex;flex-direction:column;align-items:flex-end;color:#F2F8FF}
+.t div{width:fit-content;white-space:nowrap}
+.ar{font-family:"IBM Plex Sans Arabic",sans-serif;direction:rtl;unicode-bidi:isolate}
+.en{font-family:"Montserrat",sans-serif;direction:ltr}
+#ar1{font-weight:700;font-size:132px;line-height:1.45}
+#en1{font-weight:700;font-size:112px;line-height:1.2}
+#num{font-family:"Montserrat",sans-serif;font-weight:700;font-size:280px;line-height:1;font-variant-numeric:tabular-nums;direction:ltr;letter-spacing:-0.01em}
+#ar2{font-weight:600;font-size:92px;line-height:1.45}
+#en2{font-weight:600;font-size:72px;line-height:1.25;color:#F2F8FF}
+.mono{font-family:"JetBrains Mono",monospace;font-weight:400;font-size:22px;letter-spacing:.08em;text-transform:uppercase;fill:#9CC4EE}
+#rule1{position:absolute;right:90px;top:728px;width:160px;height:3px;background:#EAF4FF;transform-origin:100% 50%}
+</style></head>
+<body>
+<div id="stage" data-composition-id="sample" data-start="0" data-duration="5" data-fps="30" data-width="1920" data-height="1080">
+
+<svg class="layer" id="gridsvg" viewBox="0 0 1920 1080"><g id="grid"></g></svg>
+
+<svg class="layer" id="draw" viewBox="0 0 1920 1080" fill="none" stroke-linecap="round" stroke-linejoin="miter">
+  <defs>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#9CC4EE" stroke-width="1.5"/></pattern>
+    <pattern id="hatchR" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#FF6B57" stroke-width="2"/></pattern>
+  </defs>
+  <g id="sheet" stroke="#5E92CC" stroke-width="1.5">
+    <rect id="border" x="48" y="48" width="1824" height="984" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+    <g id="regs"><path d="M48 24V72M24 48H72"/><path d="M1872 24V72M1848 48H1896"/><path d="M48 1008V1056M24 1032H72"/><path d="M1872 1008V1056M1848 1032H1896"/></g>
+    <path id="divider" d="M1060 140V900" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+  </g>
+
+  <path id="centre" d="M595 262V836" stroke="#5E92CC" stroke-width="1.5" stroke-dasharray="26 7 4 7" opacity="0"/>
+  <g id="hatchg" opacity="0"><rect x="150" y="802" width="840" height="22" fill="url(#hatch)"/></g>
+  <g id="city" stroke="#EAF4FF" stroke-width="3"></g>
+  <g id="wins" stroke="#9CC4EE" stroke-width="1.5"></g>
+
+  <g id="dims" stroke="#9CC4EE" stroke-width="1.5">
+    <g id="dimH">
+      <path class="dl" d="M150 860H468" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+      <path class="dl" d="M672 860H990" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+      <path class="dt" d="M142 868L158 852M982 868L998 852" opacity="0"/>
+      <path class="dt" d="M150 812V874M990 812V874" stroke-dasharray="2 5" opacity="0"/>
+      <text data-layout-ignore class="mono" x="570" y="868" text-anchor="middle" stroke="none" opacity="0" id="dimHt">W 840 M</text>
+    </g>
+    <g id="dimV">
+      <path class="dl" d="M100 300V468" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+      <path class="dl" d="M100 632V800" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+      <path class="dt" d="M92 308L108 292M92 808L108 792" opacity="0"/>
+      <path class="dt" d="M92 300H585" stroke-dasharray="2 5" opacity="0"/>
+      <text data-layout-ignore class="mono" x="0" y="0" text-anchor="middle" stroke="none" opacity="0" id="dimVt" transform="translate(108 550) rotate(-90)">H 54 M</text>
+    </g>
+  </g>
+
+  <g id="bar" opacity="0">
+    <rect id="barfill" x="150" y="905" width="0" height="40" fill="#EAF4FF" fill-opacity="0.2" stroke="none"/>
+    <g id="barhat" opacity="0"><rect x="654" y="905" width="336" height="40" fill="url(#hatchR)" stroke="none"/></g>
+    <path id="barout" d="M150 905H990V945H150Z" stroke="#9CC4EE" stroke-width="2" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+    <path id="barcells" d="M234 905V945M318 905V945M402 905V945M486 905V945M570 905V945M654 905V945M738 905V945M822 905V945M906 905V945" stroke="#9CC4EE" stroke-width="1.5" opacity="0"/>
+    <path id="barred" d="M654 905H990V945H654Z" stroke="#FF6B57" stroke-width="3" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+    <text data-layout-ignore class="mono" x="150" y="978" id="bl0" opacity="0" stroke="none">0</text>
+    <text data-layout-ignore class="mono" x="822" y="978" text-anchor="middle" id="bl40" opacity="0" stroke="none">-40</text>
+    <text data-layout-ignore class="mono" x="990" y="978" text-anchor="end" id="bl100" opacity="0" stroke="none">100</text>
+  </g>
+
+  <g id="dimN" stroke="#9CC4EE" stroke-width="1.5">
+    <path class="dl2" d="M1110 576H1384" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+    <path class="dl2" d="M1556 576H1830" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+    <path id="dimNt" d="M1102 584L1118 568M1822 584L1838 568" opacity="0"/>
+    <text data-layout-ignore class="mono" x="1470" y="584" text-anchor="middle" stroke="none" opacity="0" id="dimNtext">Energy use</text>
+  </g>
+
+  <g id="tblock" stroke="#5E92CC" stroke-width="1.5" opacity="0">
+    <rect x="1250" y="934" width="580" height="72"/>
+    <path d="M1250 970H1830M1560 934V1006"/>
+    <text data-layout-ignore class="mono" x="1266" y="959" stroke="none">City elevation</text>
+    <text data-layout-ignore class="mono" x="1266" y="995" stroke="none">Scale 1:500</text>
+    <text data-layout-ignore class="mono" x="1576" y="959" stroke="none">Sheet 01</text>
+    <text data-layout-ignore class="mono" x="1576" y="995" stroke="none">Rev A</text>
+  </g>
+</svg>
+
+<div class="t" id="g1" style="top:372px">
+  <div class="ar" id="ar1" dir="rtl" lang="ar">مدينة ذكية</div>
+  <div class="en" id="en1" dir="ltr">Smart City</div>
+</div>
+<div id="rule1"></div>
+
+<div class="t" id="g2" style="top:250px">
+  <div id="num" dir="ltr">0%</div>
+  <div class="ar" id="ar2" dir="rtl" lang="ar" style="margin-top:88px">طاقة أقل</div>
+  <div class="en" id="en2" dir="ltr">less energy</div>
+</div>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script>
+  (function () {
+    var NS = "http://www.w3.org/2000/svg";
+    function el(name, attrs, parent) {
+      var e = document.createElementNS(NS, name);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      parent.appendChild(e); return e;
+    }
+    // grid (two tones)
+    var grid = document.getElementById("grid");
+    var dMin = "", dMaj = "";
+    for (var gx = -48; gx <= 1968; gx += 48) { var s = "M" + gx + " -48V1128"; if (((gx % 240) + 240) % 240 === 0) dMaj += s; else dMin += s; }
+    for (var gy = -48; gy <= 1128; gy += 48) { var s2 = "M-48 " + gy + "H1968"; if (((gy % 240) + 240) % 240 === 0) dMaj += s2; else dMin += s2; }
+    el("path", { d: dMin, stroke: "#1A4F8C", "stroke-width": 1, fill: "none" }, grid);
+    el("path", { d: dMaj, stroke: "#2A66A8", "stroke-width": 1.5, fill: "none" }, grid);
+
+    // buildings
+    var B = [
+      [150, 260, 650, "b1"], [275, 395, 530, "b2"], [410, 510, 610, "b3"], [530, 660, 380, "b4"],
+      [675, 775, 560, "b5"], [790, 895, 640, "b6"], [910, 990, 690, "b7"]
+    ];
+    var city = document.getElementById("city"), wins = document.getElementById("wins");
+    function dpath(id, d, parent) {
+      return el("path", { id: id, d: d, pathLength: 1, "stroke-dasharray": 1, "stroke-dashoffset": 1 }, parent);
+    }
+    dpath("ground", "M110 800H1030", city);
+    B.forEach(function (b, i) {
+      var x0 = b[0], x1 = b[1], top = b[2], n = b[3], d;
+      if (n === "b5") d = "M" + x0 + " 800V" + top + "A50 50 0 0 1 " + x1 + " " + top + "V800";
+      else d = "M" + x0 + " 800V" + top + "H" + x1 + "V800";
+      dpath(n + "-o", d, city);
+      if (n === "b2") dpath("b2-top", "M300 530V490H370V530", city);
+      if (n === "b4") { dpath("b4-ant", "M595 380V300", city); dpath("b4-bar", "M578 332H612", city); }
+      var g = el("g", { id: n + "-w", opacity: 0 }, wins);
+      var w = x1 - x0, cols = Math.floor((w - 16) / 28), sx = x0 + (w - (cols * 28 - 14)) / 2;
+      var y0 = top + (n === "b5" ? 56 : 26), r = 0;
+      for (var y = y0; y + 18 <= 766; y += 36, r++) {
+        for (var c = 0; c < cols; c++) {
+          var lit = ((c * 7 + r * 13 + i * 5) % 5) < 2;
+          var dim = lit && (((c * 3 + r * 5 + i) % 5) < 2);
+          var cls = lit ? (dim ? "lit dim" : "lit keep") : "off";
+          el("rect", { id: n + "-w" + r + "-" + c, "class": cls, x: sx + c * 28, y: y, width: 14, height: 18, fill: "#EAF4FF", "fill-opacity": 0 }, g);
+        }
+      }
+    });
+    (function () {
+      var g = document.getElementById("b2-w");
+      [0, 1].forEach(function (c) { el("rect", { id: "b2-s" + c, "class": "off", x: 312 + c * 28, y: 502, width: 14, height: 16, fill: "#EAF4FF", "fill-opacity": 0 }, g); });
+    })();
+
+    // timeline
+    var tl = gsap.timeline({ paused: true });
+
+    // sheet + grid
+    tl.fromTo("#gridsvg", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power1.out" }, 0);
+    tl.fromTo("#grid", { x: 0, y: 0 }, { x: -24, y: -24, duration: 4.5, ease: "power1.out" }, 0);
+    tl.to("#border", { strokeDashoffset: 0, duration: 0.7, ease: "power2.inOut" }, 0);
+    tl.fromTo("#regs", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.5);
+    tl.to("#divider", { strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut" }, 0.4);
+
+    // city draws on
+    tl.to("#ground", { strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut" }, 0.15);
+    tl.to("#hatchg", { opacity: 1, duration: 0.3 }, 0.6);
+    ["b1-o", "b2-o", "b3-o", "b4-o", "b5-o", "b6-o", "b7-o"].forEach(function (id, i) {
+      tl.to("#" + id, { strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut" }, 0.35 + i * 0.1);
+    });
+    tl.to("#b2-top", { strokeDashoffset: 0, duration: 0.4, ease: "power2.inOut" }, 0.95);
+    tl.to("#b4-ant", { strokeDashoffset: 0, duration: 0.45, ease: "power2.inOut" }, 1.0);
+    tl.to("#b4-bar", { strokeDashoffset: 0, duration: 0.25, ease: "power2.inOut" }, 1.35);
+    tl.to("#centre", { opacity: 1, duration: 0.3 }, 1.3);
+    ["b1", "b2", "b3", "b4", "b5", "b6", "b7"].forEach(function (n, i) {
+      tl.to("#" + n + "-w", { opacity: 1, duration: 0.3, ease: "power1.out" }, 1.0 + i * 0.09);
+    });
+    tl.to(".lit", { fillOpacity: 0.26, duration: 0.3, stagger: { each: 0.004, from: "start" } }, 1.55);
+
+    // dimensions
+    tl.to(".dl", { strokeDashoffset: 0, duration: 0.5, ease: "power2.inOut", stagger: 0.08 }, 1.2);
+    tl.to(".dt", { opacity: 1, duration: 0.25 }, 1.55);
+    tl.to("#dimHt,#dimVt", { opacity: 1, duration: 0.25 }, 1.65);
+    tl.to("#tblock", { opacity: 1, duration: 0.4 }, 1.4);
+
+    // scene 1 title
+    tl.set("#ar1", { clipPath: "inset(-20% 0% -20% 100%)" }, 0);
+    tl.set("#en1", { clipPath: "inset(-20% 100% -20% 0%)" }, 0);
+    tl.to("#ar1", { clipPath: "inset(-20% 0% -20% 0%)", duration: 0.55, ease: "power3.out" }, 0.7);
+    tl.to("#en1", { clipPath: "inset(-20% 0% -20% 0%)", duration: 0.5, ease: "power3.out" }, 1.0);
+    tl.fromTo("#rule1", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power2.out" }, 1.4);
+    tl.to("#g1,#rule1", { y: -16, opacity: 0, duration: 0.25, ease: "power2.in" }, 2.0);
+
+    // scene 2: the drawing is dimmed, not erased
+    tl.to("#city,#wins,#hatchg,#centre", { opacity: 0.5, duration: 0.5, ease: "power2.inOut" }, 2.2);
+    tl.to("#dimH,#dimV", { opacity: 0.4, duration: 0.5 }, 2.2);
+
+    tl.set("#g2", { opacity: 0 }, 0);
+    tl.set("#ar2", { clipPath: "inset(-20% 0% -20% 100%)" }, 0);
+    tl.set("#en2", { clipPath: "inset(-20% 100% -20% 0%)" }, 0);
+    tl.set("#num", { clipPath: "inset(-5% 100% -5% 0%)" }, 0);
+    tl.set("#g2", { opacity: 1 }, 2.3);
+    tl.to("#num", { clipPath: "inset(-5% 0% -5% 0%)", duration: 0.4, ease: "power3.out" }, 2.3);
+    var cnt = { v: 0 }, numEl = document.getElementById("num");
+    tl.to(cnt, { v: 40, duration: 0.95, ease: "power2.out", onUpdate: function () { numEl.textContent = Math.round(cnt.v) + "%"; } }, 2.3);
+    tl.to(".dl2", { strokeDashoffset: 0, duration: 0.5, ease: "power2.inOut", stagger: 0.06 }, 2.75);
+    tl.to("#dimNt", { opacity: 1, duration: 0.2 }, 3.1);
+    tl.to("#dimNtext", { opacity: 1, duration: 0.25 }, 3.15);
+    tl.to("#ar2", { clipPath: "inset(-20% 0% -20% 0%)", duration: 0.5, ease: "power3.out" }, 2.7);
+    tl.to("#en2", { clipPath: "inset(-20% 0% -20% 0%)", duration: 0.5, ease: "power3.out" }, 2.9);
+
+    // scale bar: 60 remains, 40 is hatched redline
+    tl.to("#bar", { opacity: 1, duration: 0.2 }, 2.5);
+    tl.to("#barout", { strokeDashoffset: 0, duration: 0.5, ease: "power2.inOut" }, 2.5);
+    tl.to("#barcells", { opacity: 1, duration: 0.3 }, 2.8);
+    tl.to("#barfill", { attr: { width: 504 }, duration: 0.6, ease: "power2.out" }, 2.8);
+    tl.to("#barred", { strokeDashoffset: 0, duration: 0.45, ease: "power2.inOut" }, 3.3);
+    tl.to("#barhat", { opacity: 1, duration: 0.35 }, 3.5);
+    tl.to("#bl0,#bl40,#bl100", { opacity: 1, duration: 0.25, stagger: 0.08 }, 3.4);
+    // about 40% of the lit windows go dark
+    tl.to(".dim", { fillOpacity: 0, duration: 0.3, stagger: { each: 0.012, from: "start" } }, 3.1);
+
+    tl.set({}, {}, 5);
+    window.__timelines = window.__timelines || {};
+    window.__timelines["sample"] = tl;
+  })();
+  </script>
+</div>
+</body></html>

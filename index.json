@@ -1,0 +1,1970 @@
+{
+ "format": 1,
+ "updated": "2026-11-10T14:24:54Z",
+ "styles": [
+  {
+   "id": "ancient-pottery",
+   "files": {
+    "DESIGN.md": {
+     "size": 14234,
+     "sha256": "d2595bd2a26f4386667caf98514976bc734ebebda862bb8562437d747f1cb337"
+    },
+    "preview.mp4": {
+     "size": 1381435,
+     "sha256": "814f8d6fb922f331e5951d3f972e42daccdcf711eb982e3d14ce2298a620f10e"
+    },
+    "sample.mp4": {
+     "size": 5426174,
+     "sha256": "b7a0d8591041ebdad6e970304bcac93576b4d3f306ebac66f5dfdd1bd6dcc024"
+    },
+    "source/index.html": {
+     "size": 685811,
+     "sha256": "323db14659dc16c436333f2250ba3eba5551d8965d8e10c579dc0a915ae4d149"
+    },
+    "thumbnail.jpg": {
+     "size": 49069,
+     "sha256": "28eea9983822f6a8b57a801accf873b45b44b9d2f748084ddc185cbc5aaf9043"
+    }
+   }
+  },
+  {
+   "id": "aqua-caustics",
+   "files": {
+    "DESIGN.md": {
+     "size": 13699,
+     "sha256": "37577dd46d9e540597978372c24d2927c53ed018f27a306f12e5d9dbea2f9abe"
+    },
+    "preview.mp4": {
+     "size": 553895,
+     "sha256": "242b704206b6d8ff5b81da86ae74933ef88f6f8d08e496e5de3254ba3f504e86"
+    },
+    "sample.mp4": {
+     "size": 1353756,
+     "sha256": "7ba20ecbd541764fbffee07a96974df9614a944ed8e27463b9d6bee95d1832ec"
+    },
+    "source/index.html": {
+     "size": 2103808,
+     "sha256": "508eee0696a31a8a0fa5b74145bffd53eb489ab3c87cdbd82c38cecc50c09793"
+    },
+    "thumbnail.jpg": {
+     "size": 30486,
+     "sha256": "19859ec5796b17a55897aed9b0926616f55235b7db4d629b2d30333a9e60a41a"
+    }
+   }
+  },
+  {
+   "id": "arabesque-geometry",
+   "files": {
+    "DESIGN.md": {
+     "size": 11002,
+     "sha256": "a1fed94acd20c4b85a82dddd2932e584ca3824e04cf4ba94fbf9952a59385c5b"
+    },
+    "preview.mp4": {
+     "size": 1028104,
+     "sha256": "1a57fe670dada6aa3316469711b56c7b583139aab8da511e0d0dbab4a4b4bdee"
+    },
+    "sample.mp4": {
+     "size": 3395048,
+     "sha256": "ba07e4cced8dec2e411609ef9fa0e2c28797e41edf25802de3e6f2451bf5117a"
+    },
+    "source/index.html": {
+     "size": 1625514,
+     "sha256": "4f9b947240daa6cc28ab0e53dec62ef3837dfbfba0ab28f2049e105db1429f21"
+    },
+    "thumbnail.jpg": {
+     "size": 46811,
+     "sha256": "31102b0dd1db024c2fb5730d5f018152438e618108052ad78c642c7042fbaf0d"
+    }
+   }
+  },
+  {
+   "id": "bauhaus-kinetic",
+   "files": {
+    "DESIGN.md": {
+     "size": 10150,
+     "sha256": "c34bdef15cfe19d56c3a18fadbc178fd1fc72c84d91dd0ed9d38478ef19fa753"
+    },
+    "preview.mp4": {
+     "size": 659146,
+     "sha256": "d49850ed7c057b98b2c4fbb3711c349ade3c7d2f705dc1522e7ec89b090bedcc"
+    },
+    "sample.mp4": {
+     "size": 1005848,
+     "sha256": "599a0149c9442c6cb257ef360a0b754963fe57106bbad6e27b6230192e88e78f"
+    },
+    "source/index.html": {
+     "size": 1588113,
+     "sha256": "bca249ffc63ab88a24d297b6e2d3d126637eeab1214ff0af42d488576bb2a6b3"
+    },
+    "thumbnail.jpg": {
+     "size": 45557,
+     "sha256": "c873671de95cbc9cf13b6ce6446835f26ed32ddc5056b2013befbf168c79b3f2"
+    }
+   }
+  },
+  {
+   "id": "blueprint",
+   "files": {
+    "DESIGN.md": {
+     "size": 6974,
+     "sha256": "f0a443325c29b8c274115c9d447c25675af8d9a0b736d05e5e9afb660bdeb3fe"
+    },
+    "preview.mp4": {
+     "size": 61488,
+     "sha256": "ed45079b8a5a824bf3d13193ea0e0389fa09ae42048dea65b49c561b78fce8d4"
+    },
+    "sample.mp4": {
+     "size": 2796762,
+     "sha256": "3c55a15a7a701ad765a237899054cb624cb184879dde7baadf1ba9a79a555211"
+    },
+    "source/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2": {
+     "size": 45688,
+     "sha256": "16734a5adb27b0f363e566cbbeacec480da0dc0baa19c8f0053251c2e2bc0eac"
+    },
+    "source/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2": {
+     "size": 44280,
+     "sha256": "04c730b4292731ccedadd5bd80756124364ae4923895145d9cd7b1f28e443de1"
+    },
+    "source/fonts/jetbrains-mono-latin-wght-normal.woff2": {
+     "size": 40404,
+     "sha256": "18be452724bfdc236c074ca94a249a7f41a86752c7d04ab258ce9ed5651f6a7e"
+    },
+    "source/fonts/montserrat-latin-wght-normal.woff2": {
+     "size": 37956,
+     "sha256": "06b16db7a969135d48d38c49183be7fb88d4452e2a3011957c7851941f4e4879"
+    },
+    "source/index.html": {
+     "size": 14334,
+     "sha256": "e5e7990cb6dff574e5a7a10e5f58377ff30a3514cb8c8780ecbdf6673465662c"
+    },
+    "source/licenses/OFL-IBM-Plex-Sans-Arabic.txt": {
+     "size": 4808,
+     "sha256": "1c32ddc3fc6efd167cdcbe475195287f2dc26ed1a4c92fbe31c87ceaffe44f98"
+    },
+    "source/licenses/OFL-JetBrains-Mono.txt": {
+     "size": 4524,
+     "sha256": "403581b69dac5cff4079205e01c6b467e56af449ecbd7247693ddb1baafa005b"
+    },
+    "source/licenses/OFL-Montserrat.txt": {
+     "size": 4509,
+     "sha256": "f429f739351287574c0c3175a9222bb3e49c7cad3f568a04f2c08d74c107724e"
+    },
+    "source/vendor/gsap.min.js": {
+     "size": 72927,
+     "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb"
+    },
+    "thumbnail.jpg": {
+     "size": 205131,
+     "sha256": "0fb3e5849ba0a027b1e2bbd00df05637c8b5b4b71cb1e87ae7b80ffcfb03a277"
+    }
+   }
+  },
+  {
+   "id": "bold-promo",
+   "files": {
+    "DESIGN.md": {
+     "size": 11100,
+     "sha256": "cefc2a50793e42bcd4fdbbd61c01cf6dae3d797d207cf1dc4849fc2dc3c69cd6"
+    },
+    "preview.mp4": {
+     "size": 614867,
+     "sha256": "587f2a12b5b933a61925cceb0b09ff266846e49db11b4c838dd4d1c715470399"
+    },
+    "sample.mp4": {
+     "size": 1444775,
+     "sha256": "d35920937e8577b6487a13d69b565c70e371dc3792b7293d5ff5384954430e32"
+    },
+    "source/index.html": {
+     "size": 1360678,
+     "sha256": "a49f562cf2b92bc5a6ad392a22419b64630586ac37894ab1d597c25fd32f60f8"
+    },
+    "thumbnail.jpg": {
+     "size": 35790,
+     "sha256": "6b41329e42c86141292be1a125d329aa34cadfc1f3c31ecda29d103c8fea8dcd"
+    }
+   }
+  },
+  {
+   "id": "brutalist-type",
+   "files": {
+    "DESIGN.md": {
+     "size": 10780,
+     "sha256": "1e928ef50cad888164d4faff622dc4af600ec5893a944d41c0c183c97148b2a5"
+    },
+    "preview.mp4": {
+     "size": 873129,
+     "sha256": "88dfc5cc84ed4a6c476b1be1840210a21e1605e48eef8101eedb1182b05f7db3"
+    },
+    "sample.mp4": {
+     "size": 1620608,
+     "sha256": "2d2a3b4ed1faf7684307511f9b46d7b8a81ef7b5de7cbb99adf51faa53d38a04"
+    },
+    "source/index.html": {
+     "size": 1819426,
+     "sha256": "6f170e966aa180f2902faf0ed755bd3098b09b84ae35d272197ec8245852f44f"
+    },
+    "thumbnail.jpg": {
+     "size": 50949,
+     "sha256": "8f41da2204e5340de30fd6a4176d2655ebf127b34927feac08d90eaed84bbc0e"
+    }
+   }
+  },
+  {
+   "id": "calm-serif",
+   "files": {
+    "DESIGN.md": {
+     "size": 11701,
+     "sha256": "bde4e57d375bbfa3c16059207c5b7829bf0702f822c4b1c3eb254a397a05ea54"
+    },
+    "preview.mp4": {
+     "size": 465974,
+     "sha256": "daf6c80f32909a8a54f930e3651d75f68e42d73eb8251d6b1970c6a6662362d2"
+    },
+    "sample.mp4": {
+     "size": 1251481,
+     "sha256": "6809d8663651c921f4b35fa027d6a0b5b1133e0423d5e225fbcc4f3585b74199"
+    },
+    "source/index.html": {
+     "size": 1366880,
+     "sha256": "020848573d51c7804556ce3154114965df1383b6a20fcb4a4f29198f84c92311"
+    },
+    "thumbnail.jpg": {
+     "size": 33631,
+     "sha256": "b81086774140c7e7218b98cb089bd19dc372e2760ae229d14adf2d7677a5b0f9"
+    }
+   }
+  },
+  {
+   "id": "case-files",
+   "files": {
+    "DESIGN.md": {
+     "size": 15646,
+     "sha256": "f982d319acc648ee1203bba9f9aba42dc395b523be486dc7a077c8a9969de40d"
+    },
+    "preview.mp4": {
+     "size": 783221,
+     "sha256": "60e3d4419343214c7975f98e448ad313d38a3f22d6ea3dd7b0b181312b6a9d46"
+    },
+    "sample.mp4": {
+     "size": 2084853,
+     "sha256": "519b8bfeaa3646c9b8906c78709002e31cdbdf081eaa8232f94f7fb8cf91d3ac"
+    },
+    "source/index.html": {
+     "size": 2382816,
+     "sha256": "bc31035ed7d4798d13acb0e3f3ae7ecfffa3ce329f02252d82a9849e525a89be"
+    },
+    "thumbnail.jpg": {
+     "size": 36911,
+     "sha256": "faf212c33ca72a9e2647b70ecd880da59e605b40270a3a274610c1e0ae2785ff"
+    }
+   }
+  },
+  {
+   "id": "chalkboard-lesson",
+   "files": {
+    "DESIGN.md": {
+     "size": 14728,
+     "sha256": "b4ba5eb76ec6b589cd5bcd44eee44f0d602ea2444235920ecb862df8c8902819"
+    },
+    "preview.mp4": {
+     "size": 1031124,
+     "sha256": "04696e5603190328a0432772976a150eac50eee521e2cd92908174fef73f12ff"
+    },
+    "sample.mp4": {
+     "size": 3877930,
+     "sha256": "a31149690a9f747575d33beafbbdc8ff44ae092fa15828335598e1d8f94aad80"
+    },
+    "source/index.html": {
+     "size": 1189261,
+     "sha256": "9762a5300606427656e5fb353380343aa3f763e75a0b1d361810e7dfcba4e82f"
+    },
+    "thumbnail.jpg": {
+     "size": 43893,
+     "sha256": "83b95dad30d33e5e7a3b615c22c7a36e8d048673efcfd9f45bf24aa5c31c032b"
+    }
+   }
+  },
+  {
+   "id": "chronicle-3d",
+   "files": {
+    "DESIGN.md": {
+     "size": 15598,
+     "sha256": "b364096a03093121a383ed56c6ed95a5e9c6b340c7a52a4fd3a6b7594534022e"
+    },
+    "preview.mp4": {
+     "size": 1506461,
+     "sha256": "d68eafdd891a3feed64f2702c793946cfa799b1434315ce9fb273558b761a0f7"
+    },
+    "sample.mp4": {
+     "size": 5723204,
+     "sha256": "aaed31ce1d70d150f2592d05644012db5cbb881c484a09362c1508a5396a6f88"
+    },
+    "source/index.html": {
+     "size": 1508464,
+     "sha256": "c86f4ea4e1c385d1146824dc6e09797ab6a08f1feeedcf4bd637a202bba67d2f"
+    },
+    "thumbnail.jpg": {
+     "size": 42914,
+     "sha256": "e627c2da76fa0fb09706bada6fd9ad96be32842070cb85cae44f2c1a558c6c14"
+    }
+   }
+  },
+  {
+   "id": "clay-world",
+   "files": {
+    "DESIGN.md": {
+     "size": 12796,
+     "sha256": "2a39910faf27c47116f850258d259e1eeebc38fe9b8673f4503c1643a5ec5dba"
+    },
+    "preview.mp4": {
+     "size": 683560,
+     "sha256": "976a136d5c6c980330b8b7ff03b93d3345c1885e611b2236bf32c35416b3ffde"
+    },
+    "sample.mp4": {
+     "size": 1999629,
+     "sha256": "bb7fe41a5d56829540c78e3fd610d7ae70903a88b67c2ea7cc2849e7ceb07c1d"
+    },
+    "source/index.html": {
+     "size": 2079126,
+     "sha256": "87fa753931afffbdcb9bd0efb6d159d7fb11ec7febb478634d3e010a5b8a1361"
+    },
+    "thumbnail.jpg": {
+     "size": 35229,
+     "sha256": "14e335176dea2891d37af296d29438ee79193a5ef8c13bfe50131ddda5b927cd"
+    }
+   }
+  },
+  {
+   "id": "collage-explainer",
+   "files": {
+    "DESIGN.md": {
+     "size": 11766,
+     "sha256": "ac6afaaefc1871665f1f28bed59267aba92433b5ae5c14d650cbae6b4289da20"
+    },
+    "preview.mp4": {
+     "size": 858192,
+     "sha256": "ac8c37af38cc577a2f029d64d69a0c3873214ba1ff92394a086238a25485ac3c"
+    },
+    "sample.mp4": {
+     "size": 2304779,
+     "sha256": "17317d2824a3b19b2c57badd10761940524a1d21c5dd40cda48ebb63c6724379"
+    },
+    "source/index.html": {
+     "size": 3617767,
+     "sha256": "c0ad58fd72a03a888985a84b29120f4614dec8125a9f3536850ab10e3246dfcb"
+    },
+    "thumbnail.jpg": {
+     "size": 43100,
+     "sha256": "d5880a14dee904f04e8b14fe091c0ea0d32d0925708a25046370bf69eb0aa013"
+    }
+   }
+  },
+  {
+   "id": "colour-bar-kinetic",
+   "files": {
+    "DESIGN.md": {
+     "size": 13655,
+     "sha256": "4e4535c6fba3bd5d82c3182a2281d4d475fe22cd99fc736e798f299070049616"
+    },
+    "preview.mp4": {
+     "size": 976816,
+     "sha256": "ad899ce9b1cae3c762415dd75605e226fd68b5056546c3a812c98f19edc8ca9a"
+    },
+    "sample.mp4": {
+     "size": 2316365,
+     "sha256": "fcebe20ea1fbf97b85242132b9835dea0ae6d747de5b5ddcdc76f079fabed4f0"
+    },
+    "source/index.html": {
+     "size": 5212810,
+     "sha256": "dfe28f857840ea76e37d16554d938a0073812fcf3ac1d20f5c74b5cad3092409"
+    },
+    "thumbnail.jpg": {
+     "size": 44742,
+     "sha256": "3cb9aa2f75fcc68da7a63beadc19472f887c0837bdc3f69b9f8031835044b48d"
+    }
+   }
+  },
+  {
+   "id": "comic-pop",
+   "files": {
+    "DESIGN.md": {
+     "size": 9999,
+     "sha256": "87830a0ee52244a3afbf5a52bc80db5a3f2e0f680f3f39a1cdb5e0a78f5c379e"
+    },
+    "preview.mp4": {
+     "size": 2377802,
+     "sha256": "2ea40040838631251f989441d4dc79288ff8a6be2b8392a789378dc58f86b6ec"
+    },
+    "sample.mp4": {
+     "size": 6710133,
+     "sha256": "54f8bcd6ff43010271eceee44e4f78529ad17b209f7c776aaa7e53879046dc35"
+    },
+    "source/index.html": {
+     "size": 2181586,
+     "sha256": "d6261d10370dce757c5e70c48c0633a3530070101f568dde46420bd65f483195"
+    },
+    "thumbnail.jpg": {
+     "size": 77193,
+     "sha256": "13c8cef00114ca461b741f3606e7a1e8d54a2ff17b730fbbcefc41e303760e45"
+    }
+   }
+  },
+  {
+   "id": "contours-and-shards",
+   "files": {
+    "DESIGN.md": {
+     "size": 15565,
+     "sha256": "474131714254310dac56c55b06ba7a46a3dc604b73ca3d074e69e6d13103528a"
+    },
+    "preview.mp4": {
+     "size": 1336689,
+     "sha256": "129efd8a0c472314ae1c72d325868e804a0815b6a5c61031eb3921f8ec2d241c"
+    },
+    "sample.mp4": {
+     "size": 4839593,
+     "sha256": "0f23234a3dae5c6f5ecbaa96ce9f4bb8d174e92ba786ff6af370d6c7bc1ff401"
+    },
+    "source/index.html": {
+     "size": 3638336,
+     "sha256": "086233349d0727e0bae21e26d44d1d0480637fe8b64642bd4a54d9419a246bd1"
+    },
+    "thumbnail.jpg": {
+     "size": 45860,
+     "sha256": "707ebc371060efe664c5a9f87e9881b7438b1db5b60d80c9460f6cbc079fdd9c"
+    }
+   }
+  },
+  {
+   "id": "crystal-prism",
+   "files": {
+    "DESIGN.md": {
+     "size": 13474,
+     "sha256": "54edc59bed9d2e7dbdb3099d0153c776c998155facf1be44396b528ee054639f"
+    },
+    "preview.mp4": {
+     "size": 762254,
+     "sha256": "8d435afd66cda34dc062df3ccf20a7d750f4c17ea01a43938264bd3f27cd119c"
+    },
+    "sample.mp4": {
+     "size": 1905598,
+     "sha256": "67cec161cebe55631b8ead3eb625ca1a841adc5fbee927bd1647e8aaae229d1f"
+    },
+    "source/index.html": {
+     "size": 1707910,
+     "sha256": "03ee5c354db51878c5f43fb32ecdc10503dd3cc8b41ec1629d62fed9a514d08b"
+    },
+    "thumbnail.jpg": {
+     "size": 37552,
+     "sha256": "75acf88ad0f82de2731c735d6f9d0a2c70b3ed10d52227b34221ba808535ad06"
+    }
+   }
+  },
+  {
+   "id": "data-charts",
+   "files": {
+    "DESIGN.md": {
+     "size": 6531,
+     "sha256": "4f3e3725869b73cd1145f12668b7672cfd54c0575784b89e1402768df4f76331"
+    },
+    "preview.mp4": {
+     "size": 48686,
+     "sha256": "d582cc084154ec138ed5f7e3c74d0f6926b1e2d13955c32107f9ed1619978c2e"
+    },
+    "sample.mp4": {
+     "size": 405705,
+     "sha256": "c0c3f02ce3440ad5d9894fd5cee5c8ee6225dc650e42626cba2d067dd419e9b0"
+    },
+    "source/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2": {
+     "size": 45688,
+     "sha256": "16734a5adb27b0f363e566cbbeacec480da0dc0baa19c8f0053251c2e2bc0eac"
+    },
+    "source/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2": {
+     "size": 44280,
+     "sha256": "04c730b4292731ccedadd5bd80756124364ae4923895145d9cd7b1f28e443de1"
+    },
+    "source/fonts/jetbrains-mono-latin-wght-normal.woff2": {
+     "size": 40404,
+     "sha256": "18be452724bfdc236c074ca94a249a7f41a86752c7d04ab258ce9ed5651f6a7e"
+    },
+    "source/fonts/montserrat-latin-wght-normal.woff2": {
+     "size": 37956,
+     "sha256": "06b16db7a969135d48d38c49183be7fb88d4452e2a3011957c7851941f4e4879"
+    },
+    "source/fonts/OFL-IBM-Plex-Sans-Arabic.txt": {
+     "size": 4808,
+     "sha256": "1c32ddc3fc6efd167cdcbe475195287f2dc26ed1a4c92fbe31c87ceaffe44f98"
+    },
+    "source/fonts/OFL-JetBrains-Mono.txt": {
+     "size": 4524,
+     "sha256": "403581b69dac5cff4079205e01c6b467e56af449ecbd7247693ddb1baafa005b"
+    },
+    "source/fonts/OFL-Montserrat.txt": {
+     "size": 4509,
+     "sha256": "f429f739351287574c0c3175a9222bb3e49c7cad3f568a04f2c08d74c107724e"
+    },
+    "source/index.html": {
+     "size": 10508,
+     "sha256": "1893b5e727861d23f1a81fb18c5a9c0321c47a130cad160cbc7a466f9ca460e4"
+    },
+    "source/vendor/gsap.min.js": {
+     "size": 72927,
+     "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb"
+    },
+    "thumbnail.jpg": {
+     "size": 81300,
+     "sha256": "fddcaeea9850b8b215934831e2a24becab137850a48fc34b8bca559bbb4e4d94"
+    }
+   }
+  },
+  {
+   "id": "felt-craft",
+   "files": {
+    "DESIGN.md": {
+     "size": 14527,
+     "sha256": "f81db4e0d3b7130496e281d9ad2f599873bfd3ef004a42f3322acd22f444a9e8"
+    },
+    "preview.mp4": {
+     "size": 975705,
+     "sha256": "e6936da1759f2120e00d752d7ed515417eb8306309407a84e20d01b528235d82"
+    },
+    "sample.mp4": {
+     "size": 2679063,
+     "sha256": "bf150c94cd5d829de19b49246755ae94499dacf62f667d0f0d06de04f3767570"
+    },
+    "source/index.html": {
+     "size": 1843582,
+     "sha256": "b9a38bd1438515bb7db1a82f2ef9b5c18699056279f7a6c8f4e49807dbb84012"
+    },
+    "thumbnail.jpg": {
+     "size": 47142,
+     "sha256": "84791636e1d76903ea4efca87dae803d0e282a1c19638b8a813d7943f858d08e"
+    }
+   }
+  },
+  {
+   "id": "flat-vector",
+   "files": {
+    "DESIGN.md": {
+     "size": 7163,
+     "sha256": "a8d882e47558d9d0d562bc932c39d40bdde577907a0128bf69ca3eee9b09f518"
+    },
+    "preview.mp4": {
+     "size": 88259,
+     "sha256": "b5e0f2f536260a586b8cd8dc11278ceabf20c1e419beb80c0e9b52f72bcbe9f4"
+    },
+    "sample.mp4": {
+     "size": 971240,
+     "sha256": "e398020388bce2d875f5b59e4baa6b3a729356f5cd00b08c32e29ae13c7ed926"
+    },
+    "source/fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2": {
+     "size": 45296,
+     "sha256": "90aef64fea9794f232332e907d45810ab268d1a11721340025eba2a2cdb36d5c"
+    },
+    "source/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2": {
+     "size": 44280,
+     "sha256": "04c730b4292731ccedadd5bd80756124364ae4923895145d9cd7b1f28e443de1"
+    },
+    "source/fonts/OFL-IBM-Plex-Sans-Arabic.txt": {
+     "size": 4808,
+     "sha256": "1c32ddc3fc6efd167cdcbe475195287f2dc26ed1a4c92fbe31c87ceaffe44f98"
+    },
+    "source/fonts/OFL-Urbanist.txt": {
+     "size": 4493,
+     "sha256": "d8c6282d9c21c49ecf65ed1f98e4eaefff8d6cd32e9725bb3c7360fe47d32f47"
+    },
+    "source/fonts/urbanist-latin-wght-normal.woff2": {
+     "size": 27752,
+     "sha256": "7981ef90c246352c7c217081b8d9337b9c95e9d17ae126bf56b0d3753d1e5ffb"
+    },
+    "source/index.html": {
+     "size": 9735,
+     "sha256": "24caaf453d469d1079b4d114647435e15ecc48586862ca631f20170746f707ee"
+    },
+    "source/vendor/gsap.min.js": {
+     "size": 72927,
+     "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb"
+    },
+    "thumbnail.jpg": {
+     "size": 117297,
+     "sha256": "7cb71d14890c92f933d386beec4e64d081b4547470a559576b146a2c557d6203"
+    }
+   }
+  },
+  {
+   "id": "fluid-ui",
+   "files": {
+    "DESIGN.md": {
+     "size": 12658,
+     "sha256": "07ec7af8243a9fda6a465f9875301af1fd4da11118d3a3f692f7e40bea465365"
+    },
+    "preview.mp4": {
+     "size": 158159,
+     "sha256": "e94b20076f25edabf9f0cb0e0950effd23ab7dabcc7f2bc5492ccde697f59993"
+    },
+    "sample.mp4": {
+     "size": 273483,
+     "sha256": "302ae94c44a065c9ecec6faca635dbf6f01e9b0f79766ed10bb192ef55817185"
+    },
+    "source/index.html": {
+     "size": 1194407,
+     "sha256": "94dac8f70369122bef108aaaaa29e470841efd5b925cdf7ff233af07f0f79cdc"
+    },
+    "thumbnail.jpg": {
+     "size": 22735,
+     "sha256": "8c11fc6c56bcd9674496226cb0034b035616152569457a0dc0256d63260d32a9"
+    }
+   }
+  },
+  {
+   "id": "frame-by-frame-cel",
+   "files": {
+    "DESIGN.md": {
+     "size": 12464,
+     "sha256": "fa92c8a10320a845ffda729fa4fe2648458df9145970aff7a104cc54b16fc56d"
+    },
+    "preview.mp4": {
+     "size": 906332,
+     "sha256": "da9a3ac93046c7f2c78a287344d856adb2cbd6dbf5f5b93a320520bbefc37211"
+    },
+    "sample.mp4": {
+     "size": 2224509,
+     "sha256": "0c7bbf2169b03499f1873a1df9ff3e2e1bee0608ce9198a1eabb02501c2662e1"
+    },
+    "source/index.html": {
+     "size": 1241531,
+     "sha256": "d9d8603cf389f70892bf32ab0d1887e777c5a137f06f87a6fc1bdd042253053e"
+    },
+    "thumbnail.jpg": {
+     "size": 45288,
+     "sha256": "39dfe2cbe028df4f1319dc983bce9fae800c21c6a34a736b730e8297cbf9977c"
+    }
+   }
+  },
+  {
+   "id": "glass-panels",
+   "files": {
+    "DESIGN.md": {
+     "size": 8898,
+     "sha256": "1037c132b675deb0828a9e4f3cabed64e38f96df615fdd95466353d73dfbbfaa"
+    },
+    "preview.mp4": {
+     "size": 80155,
+     "sha256": "a9527397a80f0f76cdda4c643330e427cd9d310291ab177541e6166bf6e476f6"
+    },
+    "sample.mp4": {
+     "size": 2422447,
+     "sha256": "edcb84229cce5b1fd69eeb679ad65c38395e1d15b31088bf1cc4f9853ab837cc"
+    },
+    "source/fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2": {
+     "size": 45296,
+     "sha256": "90aef64fea9794f232332e907d45810ab268d1a11721340025eba2a2cdb36d5c"
+    },
+    "source/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2": {
+     "size": 44280,
+     "sha256": "04c730b4292731ccedadd5bd80756124364ae4923895145d9cd7b1f28e443de1"
+    },
+    "source/fonts/montserrat-latin-wght-normal.woff2": {
+     "size": 37956,
+     "sha256": "06b16db7a969135d48d38c49183be7fb88d4452e2a3011957c7851941f4e4879"
+    },
+    "source/fonts/OFL-IBM-Plex-Sans-Arabic.txt": {
+     "size": 4808,
+     "sha256": "1c32ddc3fc6efd167cdcbe475195287f2dc26ed1a4c92fbe31c87ceaffe44f98"
+    },
+    "source/fonts/OFL-Montserrat.txt": {
+     "size": 4509,
+     "sha256": "f429f739351287574c0c3175a9222bb3e49c7cad3f568a04f2c08d74c107724e"
+    },
+    "source/index.html": {
+     "size": 9783,
+     "sha256": "480be847a0adf6ccbcae56902df1bc290279758bd994531dabee132a0d65df5b"
+    },
+    "source/vendor/gsap.min.js": {
+     "size": 72927,
+     "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb"
+    },
+    "thumbnail.jpg": {
+     "size": 100931,
+     "sha256": "27da9f06ebffee5b67533e42ee82a2863e6c781947abc138550ad72fa349e225"
+    }
+   }
+  },
+  {
+   "id": "golden-horizon",
+   "files": {
+    "DESIGN.md": {
+     "size": 16437,
+     "sha256": "65160e7af4f667babb75cc8007ebd84cd6d3ec568b731c8e4bc42c7f7d1b0346"
+    },
+    "preview.mp4": {
+     "size": 526073,
+     "sha256": "67dc84bd5bd49252f5b3ef795a1891139c70be3132905a2aacd07806f3cfa42b"
+    },
+    "sample.mp4": {
+     "size": 1287249,
+     "sha256": "7453b738e1703f1ec5a18e855859de1de084d559944c78b28cdf33b35289cbfa"
+    },
+    "source/index.html": {
+     "size": 1258043,
+     "sha256": "29b5f8672eadabe2e016e41c1187fe45d544c8eeeb55953ddc266a42c689c99b"
+    },
+    "thumbnail.jpg": {
+     "size": 34358,
+     "sha256": "146a4acd550bcd6db738aa6b69062d83c1d280be45d4447fba8e7fad9da7a42f"
+    }
+   }
+  },
+  {
+   "id": "hollywood-horror",
+   "files": {
+    "DESIGN.md": {
+     "size": 13731,
+     "sha256": "6bdab468bb3d5b2d80f2fe91c83da341fcdb5e54db43cb1ef35314cf2283df00"
+    },
+    "preview.mp4": {
+     "size": 473437,
+     "sha256": "5587bbf4fdf7caefde7fca4a45a052ff3a2b4a62972cfb83352aea98b7e75699"
+    },
+    "sample.mp4": {
+     "size": 1393433,
+     "sha256": "5a8656dd1f191bf2305908312d6ec8cbde2fdaaac9340531b2cbc702176c0585"
+    },
+    "source/index.html": {
+     "size": 1577239,
+     "sha256": "14cced232cf7870b29c86495ccff87651d3eab7c1680371347cd798cb6e6194c"
+    },
+    "thumbnail.jpg": {
+     "size": 33402,
+     "sha256": "33fe7f1d3f0c80fbebeff41dc03367fcf7469800b28bec0d4b88d7705fbb692a"
+    }
+   }
+  },
+  {
+   "id": "hologram-lab",
+   "files": {
+    "DESIGN.md": {
+     "size": 12873,
+     "sha256": "19eb3475c4c1f878f1d8279d81aeffced372596bfa834e53e4498bccfd5c213f"
+    },
+    "preview.mp4": {
+     "size": 1529640,
+     "sha256": "49366c4207cd71fdb9a608f67cd4b07834233cbf48cfbaf715d479a4eb99829d"
+    },
+    "sample.mp4": {
+     "size": 4861440,
+     "sha256": "04ff2b2c5aacd338d7aaee740fd889a975c57783449699036de7a8a24764fe17"
+    },
+    "source/index.html": {
+     "size": 1878739,
+     "sha256": "3391e0e28e3a8dfa6400483b706147d4fc4b93b415c0af54bfae295659476a46"
+    },
+    "thumbnail.jpg": {
+     "size": 44213,
+     "sha256": "952e9c0e07a58039a95ae18844c9b59874ecae89b36fb7400de7316c56f798a2"
+    }
+   }
+  },
+  {
+   "id": "inflated-pop",
+   "files": {
+    "DESIGN.md": {
+     "size": 10619,
+     "sha256": "ecc5e69e455160ed39bf4ecde63fc8ce0b27721d58d04a8a4b113911d6ea1f7c"
+    },
+    "preview.mp4": {
+     "size": 865414,
+     "sha256": "f55e734e4f7862fdcc7d9adefce5b973839e181d8fceefa82d52f7fe4b55b7bd"
+    },
+    "sample.mp4": {
+     "size": 2027612,
+     "sha256": "3e835fb419fa67dbb903e9714cf965c71b6b198ba0296c4bb798c7f1c17dde3e"
+    },
+    "source/index.html": {
+     "size": 1827163,
+     "sha256": "48d4d0c41e0011aa7e64d32cd6e82ac7b3aa7f3c0bd9d5cfbc21faae6f256882"
+    },
+    "thumbnail.jpg": {
+     "size": 45289,
+     "sha256": "4008650baacd1bc82cb31fb3a4d4231ceb9bf6dc7c1e32195c15caf3d24f27b9"
+    }
+   }
+  },
+  {
+   "id": "ink-brush",
+   "files": {
+    "DESIGN.md": {
+     "size": 9422,
+     "sha256": "4c899e0757a5df3536418a968b0f6165122f4c763007a873d95ec9688fa2880d"
+    },
+    "preview.mp4": {
+     "size": 523101,
+     "sha256": "223be5e71520df2cf0cd9759501fa660b23a21d008093219301da41501cc793f"
+    },
+    "sample.mp4": {
+     "size": 1139957,
+     "sha256": "96350532192eb7c342fb0cb70300befef0ac692c8010456fbf11da203f42b153"
+    },
+    "source/index.html": {
+     "size": 2677787,
+     "sha256": "cb34f6a0492354fb2cf0fdb4e72acd9ffb6388547fccbb663fea4fad8fdd7aff"
+    },
+    "thumbnail.jpg": {
+     "size": 32577,
+     "sha256": "6d9102ac48f77f14ad6473d5c1e73f968c36007e5c5818abd5e39e4457d71b52"
+    }
+   }
+  },
+  {
+   "id": "isometric",
+   "files": {
+    "DESIGN.md": {
+     "size": 5205,
+     "sha256": "0f1306f504fdbac72013c78641cc32c1a92f604defab432399b6c25e8fa215f8"
+    },
+    "preview.mp4": {
+     "size": 65465,
+     "sha256": "9088343a71e2a0cc78d8a8fffbe8fe41350d823e5fbab7b0f816f5ed9b6bf7c5"
+    },
+    "sample.mp4": {
+     "size": 1373050,
+     "sha256": "e9470a7a80d5ad53c71c1b199dcc82b602e19a3054ac823bafdd3b1650d7f355"
+    },
+    "source/fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2": {
+     "size": 45296,
+     "sha256": "90aef64fea9794f232332e907d45810ab268d1a11721340025eba2a2cdb36d5c"
+    },
+    "source/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2": {
+     "size": 44280,
+     "sha256": "04c730b4292731ccedadd5bd80756124364ae4923895145d9cd7b1f28e443de1"
+    },
+    "source/fonts/montserrat-latin-wght-normal.woff2": {
+     "size": 37956,
+     "sha256": "06b16db7a969135d48d38c49183be7fb88d4452e2a3011957c7851941f4e4879"
+    },
+    "source/fonts/OFL-IBM-Plex-Sans-Arabic.txt": {
+     "size": 4808,
+     "sha256": "1c32ddc3fc6efd167cdcbe475195287f2dc26ed1a4c92fbe31c87ceaffe44f98"
+    },
+    "source/fonts/OFL-Montserrat.txt": {
+     "size": 4509,
+     "sha256": "f429f739351287574c0c3175a9222bb3e49c7cad3f568a04f2c08d74c107724e"
+    },
+    "source/index.html": {
+     "size": 17659,
+     "sha256": "11cbfa16ff0b4b5c4d831d3d0387b836b8c9a50bdf82f1d5cbddf7ca93cb0c5b"
+    },
+    "source/vendor/gsap.min.js": {
+     "size": 72927,
+     "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb"
+    },
+    "thumbnail.jpg": {
+     "size": 88591,
+     "sha256": "4f83cda5774967c9f46b8e2cf3735194967de9c3f92d875d581aa0e67e995bed"
+    }
+   }
+  },
+  {
+   "id": "isometric-explainer",
+   "files": {
+    "DESIGN.md": {
+     "size": 15009,
+     "sha256": "1c8f7943f7b3666b7c265e9f7e62bec662b9e52e0738ce865e64b01faaf99669"
+    },
+    "preview.mp4": {
+     "size": 853641,
+     "sha256": "fee41669312317201abe93806ac7b7da7bb4032636fac87cbc5cc99deda25cd1"
+    },
+    "sample.mp4": {
+     "size": 2120134,
+     "sha256": "8ebab2ac738ad3cc64d95ae5727b3493ec0f2fe8ae567ef3b34dfb24ba26d63a"
+    },
+    "source/index.html": {
+     "size": 3478336,
+     "sha256": "1a273f70910542d1209187d419f95f22fe2b4c9fe306ed83c7b63951788f2410"
+    },
+    "thumbnail.jpg": {
+     "size": 47565,
+     "sha256": "920e425f30b2ac5ad3c96cf336ba444856181dfe5a801dc2669e3413cf62a0ba"
+    }
+   }
+  },
+  {
+   "id": "kinetic-notes",
+   "files": {
+    "DESIGN.md": {
+     "size": 11173,
+     "sha256": "495e9cd1a3746c7dd7f912659df6b37c46098a7fcec6ab3933e6fab9e892cd20"
+    },
+    "preview.mp4": {
+     "size": 490922,
+     "sha256": "6391918039729c567c316aab45595c6f2cd8dc6fe5120f807cd4be52ea88d518"
+    },
+    "sample.mp4": {
+     "size": 1140344,
+     "sha256": "5f4a74516f4e31e59fe280b980330eaba802b0fdedf5d41e3e456ac7054d1b0c"
+    },
+    "source/index.html": {
+     "size": 1919797,
+     "sha256": "1d29b49bff4ead792c06e396527591715a8e3b9f1e030e599acbb8e4cfdf934e"
+    },
+    "thumbnail.jpg": {
+     "size": 33176,
+     "sha256": "8c99fde5bd720705a13269ec1a78fcaa674057be727be9e60abd0dc3d36fab1f"
+    }
+   }
+  },
+  {
+   "id": "kinetic-type",
+   "files": {
+    "DESIGN.md": {
+     "size": 7547,
+     "sha256": "b21b4745de362b5a78d41ca6da78023a59257962f73fa0fdc48dc62361e10fe6"
+    },
+    "preview.mp4": {
+     "size": 97184,
+     "sha256": "12e70dd89746edb9bbfd76905f92f26ec6ff043883d749eee93fb71a587774cb"
+    },
+    "sample.mp4": {
+     "size": 966130,
+     "sha256": "2081ffcc61729ef7db3e7654180a77c95607b36c9c6fd06d54d5f6b10cc934fe"
+    },
+    "source/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2": {
+     "size": 44280,
+     "sha256": "04c730b4292731ccedadd5bd80756124364ae4923895145d9cd7b1f28e443de1"
+    },
+    "source/fonts/montserrat-latin-wght-normal.woff2": {
+     "size": 37956,
+     "sha256": "06b16db7a969135d48d38c49183be7fb88d4452e2a3011957c7851941f4e4879"
+    },
+    "source/fonts/OFL-IBM-Plex-Sans-Arabic.txt": {
+     "size": 4808,
+     "sha256": "1c32ddc3fc6efd167cdcbe475195287f2dc26ed1a4c92fbe31c87ceaffe44f98"
+    },
+    "source/fonts/OFL-Montserrat.txt": {
+     "size": 4509,
+     "sha256": "f429f739351287574c0c3175a9222bb3e49c7cad3f568a04f2c08d74c107724e"
+    },
+    "source/index.html": {
+     "size": 7081,
+     "sha256": "efd312f5248934c68eee3af9c16d739fd3bdcb80108fd1efb952591676ea41f5"
+    },
+    "source/vendor/gsap.min.js": {
+     "size": 72927,
+     "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb"
+    },
+    "thumbnail.jpg": {
+     "size": 143042,
+     "sha256": "d49e920dde74a6d746228c1a29f623bd465e70f631be6d397bf8745e07fbc748"
+    }
+   }
+  },
+  {
+   "id": "layered-landscape",
+   "files": {
+    "DESIGN.md": {
+     "size": 15412,
+     "sha256": "765fc19fb53d8891e8ed441dad4fafb5e8f4752f633a5321db5d36c24669c23b"
+    },
+    "preview.mp4": {
+     "size": 1051552,
+     "sha256": "ad30d65fdc0070e91bc6349d60d1ac8f9a65eea4476e3f8a85df97b50c120286"
+    },
+    "sample.mp4": {
+     "size": 2496884,
+     "sha256": "4fc5fc869ea81ef4cf314e162fa7c2f22569e50d1033666beea5f8fa8bb63b75"
+    },
+    "source/index.html": {
+     "size": 893820,
+     "sha256": "e62e0df91a8a2cc12bdb1a7226bda5f1f388526c7b0795fabfb4452f0820d11e"
+    },
+    "thumbnail.jpg": {
+     "size": 49221,
+     "sha256": "ca8e45a2e88034eb5903f1fb8b88f43c26517e4212b1bd110c635ededfd67e4d"
+    }
+   }
+  },
+  {
+   "id": "liquid-chrome",
+   "files": {
+    "DESIGN.md": {
+     "size": 13317,
+     "sha256": "cefe3c9cc8c264aeee2cd6f8c0af5ab4690f4e1f711f7ef8a91245f89f6403a3"
+    },
+    "preview.mp4": {
+     "size": 1170426,
+     "sha256": "6113d243963b269b64df402649c0d2d0a46f0ebd11bb671e95e96597886edf4e"
+    },
+    "sample.mp4": {
+     "size": 3227075,
+     "sha256": "bc57a50b2967c63ac159464803a6cbcb7525bfcc0c1f84e5f935dbdd17821593"
+    },
+    "source/index.html": {
+     "size": 2309587,
+     "sha256": "226de7d3f491e1deaa66dbd6335b75c5bc8c7af451ded17f73f4456677c71d96"
+    },
+    "thumbnail.jpg": {
+     "size": 44444,
+     "sha256": "cb23864c212f80aaed468700901afa5e88f92ad83378933af38ee30231d9f1ef"
+    }
+   }
+  },
+  {
+   "id": "liquid-glass",
+   "files": {
+    "DESIGN.md": {
+     "size": 10440,
+     "sha256": "7ec436821812f589ac5cad2684992af693842f7561acdacde0a603a910eb2043"
+    },
+    "preview.mp4": {
+     "size": 864689,
+     "sha256": "b89365ecc9947e348212406e8064e3eadf058c747db7dde9c096011932ffac78"
+    },
+    "sample.mp4": {
+     "size": 2239291,
+     "sha256": "7fb35e3aa6ae86400c2c4d9ad6071caa3e8d329ff83205de1f8f3a61f5586db9"
+    },
+    "source/index.html": {
+     "size": 1588282,
+     "sha256": "3cf4ee88894b5e7f59e32aed90f4231c63430d75b91537424f4bd4b50da15934"
+    },
+    "thumbnail.jpg": {
+     "size": 42431,
+     "sha256": "d40202349cd8edf7b3f065102b8ec02d3152e3ca2144efbb665d335d8baa7db0"
+    }
+   }
+  },
+  {
+   "id": "low-poly-origami",
+   "files": {
+    "DESIGN.md": {
+     "size": 9900,
+     "sha256": "9b63a3f1d4a6decc64111f50ff9313b1d6d1237dd9d119262b0434d0dbf15047"
+    },
+    "preview.mp4": {
+     "size": 1441709,
+     "sha256": "5db7cafe77ae0d3e4c2380857e37006f4e8f354958882588a81d1f7c231b8964"
+    },
+    "sample.mp4": {
+     "size": 3933232,
+     "sha256": "33b5ff9044db5bef04b359c566b2aa11c183f01154f2b7ef4116af673730568d"
+    },
+    "source/index.html": {
+     "size": 1546582,
+     "sha256": "a1d8646e91490a6981cec85b678ac40fdc7a2c313b8fb4af3888d5a7847d1794"
+    },
+    "thumbnail.jpg": {
+     "size": 48160,
+     "sha256": "ae4b095729e6d062b7b115ce0638956c2ee6a981f0fef95fd0ff50432636baa5"
+    }
+   }
+  },
+  {
+   "id": "marker-doodle",
+   "files": {
+    "DESIGN.md": {
+     "size": 15838,
+     "sha256": "0b1f72ff9829e763b264505bdae8c71263c8d474080666d7fd6f2f3f80b0b389"
+    },
+    "preview.mp4": {
+     "size": 1091651,
+     "sha256": "84af5e65776a28990b52b5db7a2f4abd2da0a97ab71b40648956420dd98f0db3"
+    },
+    "sample.mp4": {
+     "size": 2911208,
+     "sha256": "28a50ae181047bb94f1295f305d32ff83f26c07c69d37856b9f760893eef1387"
+    },
+    "source/index.html": {
+     "size": 1116691,
+     "sha256": "ffb3f4d4745478282db69835ef499a9a871f95861cf5fee0bb246876c7ad1526"
+    },
+    "thumbnail.jpg": {
+     "size": 48994,
+     "sha256": "2d422d8e18d7228ac9f8999a6106d5b9490cc2c7163c2bddc52e2b318d56e5c8"
+    }
+   }
+  },
+  {
+   "id": "marker-scribble",
+   "files": {
+    "DESIGN.md": {
+     "size": 15655,
+     "sha256": "0598bf238a1aefcdafb92cdb5dd98a21258def0dc355fbb7e2b765ca6e515226"
+    },
+    "preview.mp4": {
+     "size": 1627657,
+     "sha256": "3c863f56eec478438ab4863e751024401f25783531dbab5c71f8640d6b68f4a0"
+    },
+    "sample.mp4": {
+     "size": 6566392,
+     "sha256": "ec4cfae5618adb8473f9fc571866c2bc7d6564c332c32bf12fb91f721e3c1ad6"
+    },
+    "source/index.html": {
+     "size": 1618189,
+     "sha256": "8875e9c9d2f5cb7e7e50a0714da9481e9b99316dfc9b145064f605c86054ce3f"
+    },
+    "thumbnail.jpg": {
+     "size": 58214,
+     "sha256": "6937cab1f7ae462d0ffdf859fb1829ff2d04945f4983ba1ac487fd80843b9582"
+    }
+   }
+  },
+  {
+   "id": "medical-anatomy-3d",
+   "files": {
+    "DESIGN.md": {
+     "size": 16100,
+     "sha256": "186fba5f6901c1bc71082b5a852865f242def32a351ee938e07661751628c9d4"
+    },
+    "preview.mp4": {
+     "size": 884082,
+     "sha256": "045c580be01f7e9c5bf1c6377e54efa149a467eaba571fc5f45cd5a1383929b6"
+    },
+    "sample.mp4": {
+     "size": 2304767,
+     "sha256": "1cfb05a347d251ffe95572001ed242a4aba1667b8ce701aa33e082b0f0d6ea0b"
+    },
+    "source/index.html": {
+     "size": 1973789,
+     "sha256": "19fc61b1376ee224bdadaaa5b2f94d5061b6926a34f23c9c033e327a1403dc5c"
+    },
+    "thumbnail.jpg": {
+     "size": 44999,
+     "sha256": "592536e0be37d1f8de44e464aede73ccd3388d69a916aa258ff3bc7bb687652e"
+    }
+   }
+  },
+  {
+   "id": "miniature-diorama",
+   "files": {
+    "DESIGN.md": {
+     "size": 13475,
+     "sha256": "8bd79daa94acaf28402784d6565644d4f5311bac4a0fdf5dffcb4ef0d5145877"
+    },
+    "preview.mp4": {
+     "size": 957087,
+     "sha256": "22beea0e1832116108ec3bab9c8d4040b9e1c92ad546205857949a28612e4d33"
+    },
+    "sample.mp4": {
+     "size": 2585203,
+     "sha256": "dbb0145f3e9c1274b0bb066f3d43185e0e8dd6a8cd968141aea27a89c8f14caa"
+    },
+    "source/index.html": {
+     "size": 1462126,
+     "sha256": "92ba8dced7a5f7f0af2711ef49b9d67dbc7f0042a182beae4b533d2514763c6d"
+    },
+    "thumbnail.jpg": {
+     "size": 42036,
+     "sha256": "d986bc69eef9a6e4de031c37a909c69b56e8d6d8c8740d152134a35ff44925aa"
+    }
+   }
+  },
+  {
+   "id": "neon-glow",
+   "files": {
+    "DESIGN.md": {
+     "size": 8930,
+     "sha256": "8f79d552ebf465bf014378b85f00c9c779a54eba0d66f9c3db2eccb84946cdc4"
+    },
+    "preview.mp4": {
+     "size": 54798,
+     "sha256": "008eb3c90d76c3c66f0c538f2f1cb7fb1ae1f41f362ce6582af357eb52ec38de"
+    },
+    "sample.mp4": {
+     "size": 588504,
+     "sha256": "b81a5d724fe08f0b5f6a32d318ef86508a7ce5705427f44a0e5362de3708b3d4"
+    },
+    "source/fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2": {
+     "size": 45296,
+     "sha256": "90aef64fea9794f232332e907d45810ab268d1a11721340025eba2a2cdb36d5c"
+    },
+    "source/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2": {
+     "size": 45688,
+     "sha256": "16734a5adb27b0f363e566cbbeacec480da0dc0baa19c8f0053251c2e2bc0eac"
+    },
+    "source/fonts/OFL-IBM-Plex-Sans-Arabic.txt": {
+     "size": 4808,
+     "sha256": "1c32ddc3fc6efd167cdcbe475195287f2dc26ed1a4c92fbe31c87ceaffe44f98"
+    },
+    "source/fonts/OFL-Urbanist.txt": {
+     "size": 4493,
+     "sha256": "d8c6282d9c21c49ecf65ed1f98e4eaefff8d6cd32e9725bb3c7360fe47d32f47"
+    },
+    "source/fonts/urbanist-latin-wght-normal.woff2": {
+     "size": 27752,
+     "sha256": "7981ef90c246352c7c217081b8d9337b9c95e9d17ae126bf56b0d3753d1e5ffb"
+    },
+    "source/index.html": {
+     "size": 11045,
+     "sha256": "685a5429dbec1ef7cc8199119030b96668ac984b90f4500536623d6c7964c54f"
+    },
+    "source/vendor/gsap.min.js": {
+     "size": 72927,
+     "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb"
+    },
+    "thumbnail.jpg": {
+     "size": 74368,
+     "sha256": "c2986c72802b99b08a97a425f3fd6b9ea04556da4f9a75ff6912378e6124f493"
+    }
+   }
+  },
+  {
+   "id": "neon-retro",
+   "files": {
+    "DESIGN.md": {
+     "size": 9108,
+     "sha256": "11b234f82d5cda2f3776a4bddc8530944fa524be4598c8edfea77448b1a2cdea"
+    },
+    "preview.mp4": {
+     "size": 1740436,
+     "sha256": "a8f83de5e045cecc7e2c470869cfbf8c4841b21eecff3a616ad0e7fc0f253bcb"
+    },
+    "sample.mp4": {
+     "size": 5859342,
+     "sha256": "5a3877a7af14ae3893e204fc0eaa1e911aa5fdcbd7578505ed1117e7aeb51ffd"
+    },
+    "source/index.html": {
+     "size": 2058311,
+     "sha256": "361dc246d658b1e98ed8c007fcae2b1a1559c21a80c5912dc9d4bf7348113ade"
+    },
+    "thumbnail.jpg": {
+     "size": 46219,
+     "sha256": "7982d365fe882409670c99db4dd5de9671642a51c0b9217fc92aa4c3695a3250"
+    }
+   }
+  },
+  {
+   "id": "one-line",
+   "files": {
+    "DESIGN.md": {
+     "size": 4646,
+     "sha256": "e37fbe06326a8b2c51d93fced89414d133bcc2c4f176e8c098276367e38e041f"
+    },
+    "preview.mp4": {
+     "size": 31911,
+     "sha256": "0f05bc4c2c0d3887f387689276f9de13b7cb63140933c77045bcaeb293fd1406"
+    },
+    "sample.mp4": {
+     "size": 260275,
+     "sha256": "de1c042a53b0dd4f91e3bdb9f2da31819c91f447703056ae70bdf2ed02adf9c5"
+    },
+    "source/fonts/ibm-plex-sans-arabic-arabic-300-normal.woff2": {
+     "size": 45048,
+     "sha256": "441410df8013ca6c9a732c0497bb65aa6c9fc4abeb917b907a38fabe44263e2c"
+    },
+    "source/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2": {
+     "size": 42848,
+     "sha256": "6010e7fd0dce5d527583951750728cbe3c895efbd16aa0f809ab8c824878c9d8"
+    },
+    "source/fonts/OFL-IBM-Plex-Sans-Arabic.txt": {
+     "size": 4808,
+     "sha256": "1c32ddc3fc6efd167cdcbe475195287f2dc26ed1a4c92fbe31c87ceaffe44f98"
+    },
+    "source/fonts/OFL-Urbanist.txt": {
+     "size": 4493,
+     "sha256": "d8c6282d9c21c49ecf65ed1f98e4eaefff8d6cd32e9725bb3c7360fe47d32f47"
+    },
+    "source/fonts/urbanist-latin-wght-normal.woff2": {
+     "size": 27752,
+     "sha256": "7981ef90c246352c7c217081b8d9337b9c95e9d17ae126bf56b0d3753d1e5ffb"
+    },
+    "source/index.html": {
+     "size": 8107,
+     "sha256": "9c1bea14b0f08823d1e7ef158eba84e3282b6597e6c34acf0374609d9e6742c1"
+    },
+    "source/vendor/gsap.min.js": {
+     "size": 72927,
+     "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb"
+    },
+    "thumbnail.jpg": {
+     "size": 57908,
+     "sha256": "36aa2aefaa2464499ca528ef6128cfbe7646ecf5d35551bb005f49ab837a8166"
+    }
+   }
+  },
+  {
+   "id": "paper-cut",
+   "files": {
+    "DESIGN.md": {
+     "size": 5248,
+     "sha256": "8ea8190fbae9f34b4e0b440eff2a22e964505e07f8ab3842dec32aeed78f116f"
+    },
+    "preview.mp4": {
+     "size": 92678,
+     "sha256": "e19d08a58256da28cb9acb39a001ca5a3c5456f6148067b22e2e0383cde2d4dd"
+    },
+    "sample.mp4": {
+     "size": 3338303,
+     "sha256": "eb6dd38bb43923d6adffcefc8f41454d50a1e0b094b51e2cb499dd059da2d09f"
+    },
+    "source/fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2": {
+     "size": 45296,
+     "sha256": "90aef64fea9794f232332e907d45810ab268d1a11721340025eba2a2cdb36d5c"
+    },
+    "source/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2": {
+     "size": 44280,
+     "sha256": "04c730b4292731ccedadd5bd80756124364ae4923895145d9cd7b1f28e443de1"
+    },
+    "source/fonts/montserrat-latin-wght-normal.woff2": {
+     "size": 37956,
+     "sha256": "06b16db7a969135d48d38c49183be7fb88d4452e2a3011957c7851941f4e4879"
+    },
+    "source/fonts/OFL-IBM-Plex-Sans-Arabic.txt": {
+     "size": 4808,
+     "sha256": "1c32ddc3fc6efd167cdcbe475195287f2dc26ed1a4c92fbe31c87ceaffe44f98"
+    },
+    "source/fonts/OFL-Montserrat.txt": {
+     "size": 4509,
+     "sha256": "f429f739351287574c0c3175a9222bb3e49c7cad3f568a04f2c08d74c107724e"
+    },
+    "source/index.html": {
+     "size": 26432,
+     "sha256": "71985cb723fda326684f19910e283c5086f0feebb2c8fbc04734c54063735039"
+    },
+    "source/vendor/gsap.min.js": {
+     "size": 72927,
+     "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb"
+    },
+    "thumbnail.jpg": {
+     "size": 151225,
+     "sha256": "ab3668be0483dfef5577627eca044ece9c3aa719a979deedad2f78c642d35a37"
+    }
+   }
+  },
+  {
+   "id": "paper-pop-layers",
+   "files": {
+    "DESIGN.md": {
+     "size": 16179,
+     "sha256": "c6704237d9617a3167371354eb226f347592c3b2a5b6fd19fa162b170c72a67d"
+    },
+    "preview.mp4": {
+     "size": 1953029,
+     "sha256": "7a20a37a3526dbdb94750ed8d665655568dcf541d8eb5009feede5443bb14a26"
+    },
+    "sample.mp4": {
+     "size": 5704648,
+     "sha256": "b85176d35ebb31c159b9b487bb896bca7011147e854eb081352e7527a05b4016"
+    },
+    "source/index.html": {
+     "size": 1976478,
+     "sha256": "f5c6b8c0a1bb8ec991cde8a2a8d4b344fd36273a3ad149ffa99a6197ab6065c4"
+    },
+    "thumbnail.jpg": {
+     "size": 62743,
+     "sha256": "51a1520f61772e9f2cca607f5c527ec6aa8a09f71d3ee80a72da21c25ffd25b6"
+    }
+   }
+  },
+  {
+   "id": "paper-stage",
+   "files": {
+    "DESIGN.md": {
+     "size": 15915,
+     "sha256": "b354c796d544c516b7d5e606b588a5786baa5cf1de569bf6481f8c8a5b48bdd1"
+    },
+    "preview.mp4": {
+     "size": 848884,
+     "sha256": "291d46d6cd3f860c90d95fac0fd1ba93218181ac702b4746255403708ed7f75c"
+    },
+    "sample.mp4": {
+     "size": 2217863,
+     "sha256": "55278a62cb605a8f2baf4e493d80118cef1474c636f304def42955c86925e79b"
+    },
+    "source/index.html": {
+     "size": 1596423,
+     "sha256": "3028802438b442c676a1c12a8a8ea92754339e8bbab57b534601ef1686c94934"
+    },
+    "thumbnail.jpg": {
+     "size": 37371,
+     "sha256": "977b2b30988b31e33631363dbfac1a2e496c523a4433512464a4b02de6c1bc34"
+    }
+   }
+  },
+  {
+   "id": "particle-flow",
+   "files": {
+    "DESIGN.md": {
+     "size": 11131,
+     "sha256": "2139a4fe59e118a24244685b4a9fa7c6b035dfcbd773616c6ba38e6b5c1b29f5"
+    },
+    "preview.mp4": {
+     "size": 992825,
+     "sha256": "9a615197dd04a4c4854d521c0fd6b042a8346bc1016c5bc217b5365c04adae66"
+    },
+    "sample.mp4": {
+     "size": 4968308,
+     "sha256": "eadd42c95fe6345f0a277c399633b02b23df90311b9dbd37a1a1f1913e360002"
+    },
+    "source/index.html": {
+     "size": 1772742,
+     "sha256": "14f92d424e11d73de5dcc06e9c709a9a544243241f5277e3738a0110032dd3e6"
+    },
+    "thumbnail.jpg": {
+     "size": 36773,
+     "sha256": "5d33b46c3d5bc343d5c04def0a2386403fcd0dd4cff05929bde57cf5f7f4d971"
+    }
+   }
+  },
+  {
+   "id": "pixel-art",
+   "files": {
+    "DESIGN.md": {
+     "size": 10645,
+     "sha256": "b61da67e1e1e1978e01025889dfe868be5ed149834c793949aa8bad3a6387515"
+    },
+    "preview.mp4": {
+     "size": 89738,
+     "sha256": "de787f55da8a86d16cc5a9729aad004363bcb6f579372883b61ee1d4f7981eed"
+    },
+    "sample.mp4": {
+     "size": 99882,
+     "sha256": "4954ac58402fb3018a0a40492c0947c4b3725ad0a7b47ee9c2d9b5235267b562"
+    },
+    "source/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2": {
+     "size": 44280,
+     "sha256": "04c730b4292731ccedadd5bd80756124364ae4923895145d9cd7b1f28e443de1"
+    },
+    "source/fonts/OFL-IBM-Plex-Sans-Arabic.txt": {
+     "size": 4808,
+     "sha256": "1c32ddc3fc6efd167cdcbe475195287f2dc26ed1a4c92fbe31c87ceaffe44f98"
+    },
+    "source/index.html": {
+     "size": 15764,
+     "sha256": "b7bf61b49b214fbdb19a102e7178f623caa52bcc90b0f1f11f34ef8c6e3b7559"
+    },
+    "source/vendor/gsap.min.js": {
+     "size": 72927,
+     "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb"
+    },
+    "thumbnail.jpg": {
+     "size": 53084,
+     "sha256": "2efc5bb0ef5b89deaf89b5b327d8b868945e1a64bfdc7233ba81b60e3158eead"
+    }
+   }
+  },
+  {
+   "id": "pixel-quest",
+   "files": {
+    "DESIGN.md": {
+     "size": 11296,
+     "sha256": "2811052a7874bc091654eaff0c0f608db8bc479d4ff00ad63027f13fafe1869b"
+    },
+    "preview.mp4": {
+     "size": 1442942,
+     "sha256": "692c27d3672e2f21ec417e88616854ced4bb17119463fb8d9c1f3c3c68400f02"
+    },
+    "sample.mp4": {
+     "size": 2550720,
+     "sha256": "5792cff32d95aaed142ec8c375371c76150c595fa4740f8170989108014ed9af"
+    },
+    "source/index.html": {
+     "size": 1506769,
+     "sha256": "b4c0848748975298b3bf525958121335fa3917890efcac83c462c3a79c536177"
+    },
+    "thumbnail.jpg": {
+     "size": 64334,
+     "sha256": "3c791f74b54e07dfd3d03a6e505aa25188eefb3401493ed825d6d872204b4f12"
+    }
+   }
+  },
+  {
+   "id": "pop-portrait",
+   "files": {
+    "DESIGN.md": {
+     "size": 14963,
+     "sha256": "eecdb62307eeb468d8975e55f3fc3d45715b40b417ca6623def202b51e8cf5df"
+    },
+    "preview.mp4": {
+     "size": 826174,
+     "sha256": "ecada4a4c51cdf5768260d2e885343311b14017ed2ca2ea5b451a4bc3fdd2d27"
+    },
+    "sample.mp4": {
+     "size": 1754102,
+     "sha256": "32014c125df468e8e52b1d52b55ddd1d11ded8ea5b517a18de7bd8979c4b91f7"
+    },
+    "source/index.html": {
+     "size": 801597,
+     "sha256": "a8a044b54d759fa193032716840968701c4f79ee131257fbacc1c1f3c02ede3e"
+    },
+    "thumbnail.jpg": {
+     "size": 49454,
+     "sha256": "a6b58c451a17ed9d15dc441bef97edcc8ed77a491f6d7879b3ad62173701818e"
+    }
+   }
+  },
+  {
+   "id": "quirky-editorial",
+   "files": {
+    "DESIGN.md": {
+     "size": 14119,
+     "sha256": "3fb6be97ff5e84b04e6882cddf2ac5d3f07b861c02bfa6de60fb470619f59cad"
+    },
+    "preview.mp4": {
+     "size": 1777068,
+     "sha256": "a6000332bb9ac9c0ae5e6ed9c226330f2969a9c233ce114b5b15f47a9f7b2402"
+    },
+    "sample.mp4": {
+     "size": 6029113,
+     "sha256": "c7d24aab10a2a4cf861bf21726dc1179e506479c5e983cc39f83e4f95f92cc12"
+    },
+    "source/index.html": {
+     "size": 2744397,
+     "sha256": "9d5387c4273b196e9115189589fc9f7cbe49e5fb77146eb57647f8134e03c3a0"
+    },
+    "thumbnail.jpg": {
+     "size": 71780,
+     "sha256": "50818af2c9e43c8274d895e8283fa356c95b333f32905b7051c687218bcb866f"
+    }
+   }
+  },
+  {
+   "id": "quiz-show",
+   "files": {
+    "DESIGN.md": {
+     "size": 14987,
+     "sha256": "633f43a1da13c2132d3a77ac91eafd727917fad27f85f22575f09eba95cccf3b"
+    },
+    "preview.mp4": {
+     "size": 1706901,
+     "sha256": "267a6eb871e840ff2cccc4fd71a0772cf2da9489b436edeb6260a29f6b620030"
+    },
+    "sample.mp4": {
+     "size": 5555443,
+     "sha256": "28f889c3de197a3c0c654261b7029924cfc71675d824c5e4c76acb47d92d9278"
+    },
+    "source/index.html": {
+     "size": 1265553,
+     "sha256": "82b5c1d304f16774689aed6d99c585f660ae881a62824693871d11b37f76ba43"
+    },
+    "thumbnail.jpg": {
+     "size": 51191,
+     "sha256": "befb956e48e85bf2509a3778fbd933b7198a241f773487ac5618bdad6a530282"
+    }
+   }
+  },
+  {
+   "id": "risograph-print",
+   "files": {
+    "DESIGN.md": {
+     "size": 13826,
+     "sha256": "dfe8eb2819aed2a9eff63f1f6c04179048eb87d9c096e0ff38e20f6f213f52ee"
+    },
+    "preview.mp4": {
+     "size": 1292175,
+     "sha256": "ddc53e55dfc6ed2ca770c9f52f4a498c7ee313dfa839f795dbb92d8afd44c416"
+    },
+    "sample.mp4": {
+     "size": 4477342,
+     "sha256": "e7fa5a94166b7874214f094c397dcca300f0721a73e6c6517b83290445097a76"
+    },
+    "source/index.html": {
+     "size": 938450,
+     "sha256": "65d12de591d7978de4bc104e9052db76de786760d130142ab1220ecc90b2e90d"
+    },
+    "thumbnail.jpg": {
+     "size": 44777,
+     "sha256": "950e8bfbf616c758045fb075bd67e789a4f7fac526f9073b3741253de6004c80"
+    }
+   }
+  },
+  {
+   "id": "science-cutaway",
+   "files": {
+    "DESIGN.md": {
+     "size": 15805,
+     "sha256": "79bce25faddecd3cc2c49fc709d34e076c0cee004906e5b8fe2c79e4b03774b8"
+    },
+    "preview.mp4": {
+     "size": 776885,
+     "sha256": "891973a0d871df47cae662d06ff1e67263ed4b91c1b01998ad57a4858e486bcd"
+    },
+    "sample.mp4": {
+     "size": 1986476,
+     "sha256": "0c0acd3d9611ca0a56836556a002d380ee8ce8d2f5e1d600b272b3d5cfa042e4"
+    },
+    "source/index.html": {
+     "size": 1611310,
+     "sha256": "fbc0808c691bb93b011f1253dc95bf3deb0c1212b272aa449e368c22e7078393"
+    },
+    "thumbnail.jpg": {
+     "size": 46096,
+     "sha256": "2d06f2a1aac6c91c8de6bddcaf70280d5469f9a802dbdb5b95c7d35634655a9f"
+    }
+   }
+  },
+  {
+   "id": "shadow-play",
+   "files": {
+    "DESIGN.md": {
+     "size": 17080,
+     "sha256": "8007fe88c08ac39a72fd83319bdb2ac760253d7273dbd8fd5909924ef57fb733"
+    },
+    "preview.mp4": {
+     "size": 947888,
+     "sha256": "02c70f1d2ec15fab1b6f8a16c619b8a1e80a7c160811dfe2e59b5c5cb97d52b4"
+    },
+    "sample.mp4": {
+     "size": 2088903,
+     "sha256": "27a6eaf5a97f4a32fde1d5e853d2779fa65c2eaa97de7158c0a657acf162e917"
+    },
+    "source/index.html": {
+     "size": 868221,
+     "sha256": "452f2db81476b5888b3758575f03831a4772bac726d0b9fe8e507c903ad7d184"
+    },
+    "thumbnail.jpg": {
+     "size": 48412,
+     "sha256": "72ca93cad1c318b1e8cca88927949402fe40279255f3d7be8f0f845fe1fc7fbd"
+    }
+   }
+  },
+  {
+   "id": "shape-morphing",
+   "files": {
+    "DESIGN.md": {
+     "size": 6992,
+     "sha256": "2215088e402a67d0f50c252e253c7284d82f8c58fba48ef7f9e725da533f8e80"
+    },
+    "preview.mp4": {
+     "size": 55645,
+     "sha256": "cb03dd3a094651f866f35f122a436f62df999345d013af174f202f3bda981c74"
+    },
+    "sample.mp4": {
+     "size": 796562,
+     "sha256": "c8d2a5920766b0af06a9935704315f46947b97b353f330b3a96b04c9b8745ca6"
+    },
+    "source/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2": {
+     "size": 45688,
+     "sha256": "16734a5adb27b0f363e566cbbeacec480da0dc0baa19c8f0053251c2e2bc0eac"
+    },
+    "source/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2": {
+     "size": 44280,
+     "sha256": "04c730b4292731ccedadd5bd80756124364ae4923895145d9cd7b1f28e443de1"
+    },
+    "source/fonts/montserrat-latin-wght-normal.woff2": {
+     "size": 37956,
+     "sha256": "06b16db7a969135d48d38c49183be7fb88d4452e2a3011957c7851941f4e4879"
+    },
+    "source/fonts/OFL-IBM-Plex-Sans-Arabic.txt": {
+     "size": 4808,
+     "sha256": "1c32ddc3fc6efd167cdcbe475195287f2dc26ed1a4c92fbe31c87ceaffe44f98"
+    },
+    "source/fonts/OFL-Montserrat.txt": {
+     "size": 4509,
+     "sha256": "f429f739351287574c0c3175a9222bb3e49c7cad3f568a04f2c08d74c107724e"
+    },
+    "source/index.html": {
+     "size": 11225,
+     "sha256": "77015b93c7447290adac16dd0d3020f527f4dd385dafb20ed840dc722ab57009"
+    },
+    "source/vendor/gsap.min.js": {
+     "size": 72927,
+     "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb"
+    },
+    "thumbnail.jpg": {
+     "size": 69117,
+     "sha256": "1528262ad6ed19c7dbecab010ffa9241afe8305d7124dd47c3341a6b065b58fe"
+    }
+   }
+  },
+  {
+   "id": "stained-glass-light",
+   "files": {
+    "DESIGN.md": {
+     "size": 15295,
+     "sha256": "0cc9004fac01479ece707a08276d15c898430c0789e7edd81efa3b81e9c2de50"
+    },
+    "preview.mp4": {
+     "size": 1188815,
+     "sha256": "8eca70c2a3b853d4f924905e1ef8be82337b62ccf711f71ae05c0df79ba630f5"
+    },
+    "sample.mp4": {
+     "size": 2804682,
+     "sha256": "1d7d7fb1b294cd7543314947f86fb1003d24fe7f6b31f2e1a3606821ac268910"
+    },
+    "source/index.html": {
+     "size": 662898,
+     "sha256": "8fae37ee3b2ef99f944434eee55687f4f5d3a6a735b4c0ac16680de8c896aab8"
+    },
+    "thumbnail.jpg": {
+     "size": 46698,
+     "sha256": "d7762063fda54cc08cdf3dc1eed1eceb7f12ac17b6deec621fe05f4cd9ba1820"
+    }
+   }
+  },
+  {
+   "id": "sticker-type",
+   "files": {
+    "DESIGN.md": {
+     "size": 13600,
+     "sha256": "4480a4afba283c35a130113fd8eac763ef640ecfc589d5e768d80e32532c2664"
+    },
+    "preview.mp4": {
+     "size": 904940,
+     "sha256": "2c4c600fdfbc1da46375d1304cd1f87c45281f633bff2add17d9abdad567c0bf"
+    },
+    "sample.mp4": {
+     "size": 1951948,
+     "sha256": "8e449c72b0f01bd8e697a9b960aeb47e75dd764d951bc16333dfc2bcfb754f08"
+    },
+    "source/index.html": {
+     "size": 1230995,
+     "sha256": "37bad4073bc3a8bfa07931591a23bb1cb6c5b0661da824cd4df55fe8ff15a964"
+    },
+    "thumbnail.jpg": {
+     "size": 50236,
+     "sha256": "be98ae424220d863ee50d7931136174f6dcbce030e61d9298b6b7d95bb24f1a6"
+    }
+   }
+  },
+  {
+   "id": "story-briefing",
+   "files": {
+    "DESIGN.md": {
+     "size": 15711,
+     "sha256": "aaba691c575662866402e21ee16c1188be48196515133fd031d7efd99484a57e"
+    },
+    "preview.mp4": {
+     "size": 1092659,
+     "sha256": "80918921b745ddf76a2a05f88cf01f118afe5dc083e263bb03ed4ebcc9e2644e"
+    },
+    "sample.mp4": {
+     "size": 2728381,
+     "sha256": "65a765e1864a0782c3a9bdd819899dd335ae79667224f7eaf04f66c5bf0015b6"
+    },
+    "source/index.html": {
+     "size": 1257283,
+     "sha256": "3057acd8a38fed9bbda8507dcaf81889f02ee6d50a7e566566ce3374e5d4e680"
+    },
+    "thumbnail.jpg": {
+     "size": 50822,
+     "sha256": "db7196d5f1ed6ad95f1d4686ccb5412e6418fb9046ea35a0026667575cd64efb"
+    }
+   }
+  },
+  {
+   "id": "swiss-grid",
+   "files": {
+    "DESIGN.md": {
+     "size": 14760,
+     "sha256": "1d1dfe7c4c67acfd50b8a755ae532579fc806352aac21c103f48da6e68edcc39"
+    },
+    "preview.mp4": {
+     "size": 745473,
+     "sha256": "66445da83c863961b7d1a99c0b162b145962814069b77ed5d5912b408d407bee"
+    },
+    "sample.mp4": {
+     "size": 1460837,
+     "sha256": "fc82454701d0a1ed764cbea80b60ccfb2ffc882ef7f6ba5b94d94ede3ea16879"
+    },
+    "source/index.html": {
+     "size": 782131,
+     "sha256": "571b2203098ebd504177baa6dabfe89470d176fa4d18d8fdc424d69c77dea567"
+    },
+    "thumbnail.jpg": {
+     "size": 39846,
+     "sha256": "6698c6e41fbebaa5472259ed6a8a74733db1c929653ada740bb800a0136451ab"
+    }
+   }
+  },
+  {
+   "id": "taped-labels",
+   "files": {
+    "DESIGN.md": {
+     "size": 14551,
+     "sha256": "60721b07c480f751f3dd1e45d3c2dacfdea23b41ab9ac6e4036461837d514df1"
+    },
+    "preview.mp4": {
+     "size": 1578133,
+     "sha256": "6382066a58b110eb4eb11e621b08d2eb1b5f0e083a7c6125dc4fd0f184f2d50c"
+    },
+    "sample.mp4": {
+     "size": 3998399,
+     "sha256": "5d1cbd9842ae26d32cbd8b15093cab20fab6752035bea2b1c425a3158b6c2daf"
+    },
+    "source/index.html": {
+     "size": 4197055,
+     "sha256": "79b9a80cd74fa9383eba450e2233423ceb3e890d170b200f2e32656909b0a786"
+    },
+    "thumbnail.jpg": {
+     "size": 57700,
+     "sha256": "7713691ecdafe954b3d085a9d6a6b36d9ea64e7c25b508ef98a3cae43a15e543"
+    }
+   }
+  },
+  {
+   "id": "technical-blueprint",
+   "files": {
+    "DESIGN.md": {
+     "size": 11870,
+     "sha256": "4131b2a965f4d47530533aba74880902fc9c95bfe2e04c23c43eebfb918e2ddf"
+    },
+    "preview.mp4": {
+     "size": 823139,
+     "sha256": "89f7d04cd64901f63c94221c3c7a685384a9d2e854ec85c4decf6a3b8793e8ad"
+    },
+    "sample.mp4": {
+     "size": 1875272,
+     "sha256": "e9817bc97d5823da42153c7d33ea947ca48cd67781825ff3c9d02ceb7d22dfea"
+    },
+    "source/index.html": {
+     "size": 1810035,
+     "sha256": "19c82549184bf3cb9ffb1541a877604802e30f3e54e75aec9976ba530fcee13d"
+    },
+    "thumbnail.jpg": {
+     "size": 52127,
+     "sha256": "fdee4c877af73c2ccac43965f526777d70925dae936c84664ca5ab2baae6baf1"
+    }
+   }
+  },
+  {
+   "id": "tiny-planet",
+   "files": {
+    "DESIGN.md": {
+     "size": 15289,
+     "sha256": "1317c24894bc18b6bc9472327ffc07f955aaad512ddb02cc836bcf6dc9e56db3"
+    },
+    "preview.mp4": {
+     "size": 1699799,
+     "sha256": "e25e7d928ad7625e8fa9c4a9cd48a1dee0fd728b41249a39699f58e1129152d3"
+    },
+    "sample.mp4": {
+     "size": 4285299,
+     "sha256": "27c3b89f2b64061aa345ac811eb66b2c50fa9d5f4426ff72b9fa7dd14fe04ff9"
+    },
+    "source/index.html": {
+     "size": 1860216,
+     "sha256": "f3e71eddbd86c8f189fd4d3792d92e7fe0070a6f00424f083c089f88c0e84a33"
+    },
+    "thumbnail.jpg": {
+     "size": 59009,
+     "sha256": "b4fe8143ccbbb32a2d1c1d21cf187d8be70d029dd3fd39e95aac56e1329945ab"
+    }
+   }
+  },
+  {
+   "id": "toon-shaded-3d",
+   "files": {
+    "DESIGN.md": {
+     "size": 14483,
+     "sha256": "8e2689280bcf8624ee2d162c8d260abe81116d4528c2a8799ef8c62d5fe065fd"
+    },
+    "preview.mp4": {
+     "size": 1307771,
+     "sha256": "aff0a877f78468424c08a54a61762e2713ca49d7afd75ce8576909aaadabda57"
+    },
+    "sample.mp4": {
+     "size": 3339663,
+     "sha256": "9646133608e5fcdc34e394368467c2fa25fff4e68df14072065c780a87f03b96"
+    },
+    "source/index.html": {
+     "size": 1709021,
+     "sha256": "d437f9394d33a8c8072de705114efe7e8b5c468916c54f6ae8b15d17c6d8a065"
+    },
+    "thumbnail.jpg": {
+     "size": 54483,
+     "sha256": "c3dd7e6c910b655f9f7fe68da894040a8bfc16d4be59c6221aab6a19f78a4ea9"
+    }
+   }
+  },
+  {
+   "id": "topographic-terrain",
+   "files": {
+    "DESIGN.md": {
+     "size": 15097,
+     "sha256": "91b8d3defd6fbd57eaecd1236fd3e0adaf151d3d9ef8cc6ff91268087e40b110"
+    },
+    "preview.mp4": {
+     "size": 1474089,
+     "sha256": "a7a05e34c243789d2db4c089e76550026466abb166502d9822506ea48a9b8641"
+    },
+    "sample.mp4": {
+     "size": 4619396,
+     "sha256": "123bbb90a8352d1c813a9606a97252ee00410604d2f4a2bcb3aea288d184197f"
+    },
+    "source/index.html": {
+     "size": 1711542,
+     "sha256": "6a0e986abc6b56f17f121492cdbc2f5f136bae1857ae3a6d77eb03ad06b91765"
+    },
+    "thumbnail.jpg": {
+     "size": 46018,
+     "sha256": "ed8b6afbd0845535b45ee42299d38e4c3d110cd18ece73a7628d37f8ee1b1371"
+    }
+   }
+  },
+  {
+   "id": "torn-paper-mosaic",
+   "files": {
+    "DESIGN.md": {
+     "size": 14271,
+     "sha256": "6131fdbb3d81ddb10331de60bd064950a9ee92d857c802637729526f04d7c992"
+    },
+    "preview.mp4": {
+     "size": 1686842,
+     "sha256": "e863df7dfe9e410f4394cd11a00c7032c8e523fb0acbdfbab6683699727839c5"
+    },
+    "sample.mp4": {
+     "size": 4914082,
+     "sha256": "3841e0e6a083a621afa13b3f3a118be8c983f803dcd01fca84a5e34449b8d4fd"
+    },
+    "source/index.html": {
+     "size": 1306405,
+     "sha256": "4add907538140a01b46e0a45094d63cbd9e0d809d9998c5e1f9502c17b4c6d67"
+    },
+    "thumbnail.jpg": {
+     "size": 58440,
+     "sha256": "ae16fd59c142141a6192ac202947b66bd143888ed9e32e6ff8d6bba422fbd26e"
+    }
+   }
+  },
+  {
+   "id": "voxel-world",
+   "files": {
+    "DESIGN.md": {
+     "size": 13011,
+     "sha256": "a1b7c2bd94d31f4ce9d17028ceddecd61fa76b2f3099d705aece43dbb297d38c"
+    },
+    "preview.mp4": {
+     "size": 1950639,
+     "sha256": "adbabaede89971b41a7f08ea053e242e20dfa6cdd75912f8dd08cc5d8951c52d"
+    },
+    "sample.mp4": {
+     "size": 6671429,
+     "sha256": "ec02f071c8cb6c188cc2a88a465abd5aa2607548e57f3ddf3fb17cbe2142000f"
+    },
+    "source/index.html": {
+     "size": 1435523,
+     "sha256": "0e41c7d7af8d85f4b62902cec898a56a42303ae44f22c60058f03b5eb22bbb6e"
+    },
+    "thumbnail.jpg": {
+     "size": 48360,
+     "sha256": "87b70ef326a490bd2b227969353001a1df54d6ed1be4cab8c43faf89b6207176"
+    }
+   }
+  },
+  {
+   "id": "watercolor-story",
+   "files": {
+    "DESIGN.md": {
+     "size": 10484,
+     "sha256": "4eafcbf9bc73437920b9598706c57f6126c57dc50760c487dc78953f3f060cf3"
+    },
+    "preview.mp4": {
+     "size": 735948,
+     "sha256": "1241f234877907652357fc45c97d84f941f0a590781bc62eb8d4e5b93477cc30"
+    },
+    "sample.mp4": {
+     "size": 2049152,
+     "sha256": "e293229f974f1d4b7828ecab6b8ae8d76a659aa58255f719768e44ec8dfbc7a3"
+    },
+    "source/index.html": {
+     "size": 2958657,
+     "sha256": "66f654ef756a24bbbb1694192803db8d742eefe6d25a90eca2b3a96b674732c9"
+    },
+    "thumbnail.jpg": {
+     "size": 41147,
+     "sha256": "1ba7e5a34f29d957ffbf21b6920506565ce7ee596ab4dedae1bf1826876be0b0"
+    }
+   }
+  }
+ ]
+}

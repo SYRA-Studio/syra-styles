@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<style>
+@font-face { font-family: "Montserrat"; src: url("fonts/montserrat-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2"); font-weight: 100 800; font-display: block; }
+@font-face { font-family: "IBM Plex Sans Arabic"; src: url("fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2") format("woff2"); font-weight: 600; font-display: block; }
+@font-face { font-family: "IBM Plex Sans Arabic"; src: url("fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2") format("woff2"); font-weight: 700; font-display: block; }
+html, body, #stage { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #F5F0E6; }
+#stage { position: relative; color: #16202E; }
+#chart { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+.mono { font-family: "JetBrains Mono", monospace; font-weight: 500; font-size: 28px; fill: #6B6A63; }
+.col { position: absolute; left: 1160px; width: 640px; text-align: right; }
+.ar { font-family: "IBM Plex Sans Arabic", sans-serif; direction: rtl; line-height: 1.4; }
+.en { font-family: "Montserrat", sans-serif; direction: ltr; }
+#title { top: 440px; }
+#title .ar { font-weight: 700; font-size: 120px; color: #16202E; }
+#title .en { font-weight: 800; font-size: 80px; line-height: 1.1; margin-top: 6px; color: #16202E; }
+#num { top: 372px; }
+#numRule { width: 112px; height: 10px; background: #E4472B; margin-left: auto; transform-origin: right center; }
+#numVal { font-family: "Montserrat", sans-serif; direction: ltr; font-weight: 800; font-size: 250px; line-height: 1; color: #E4472B; font-variant-numeric: tabular-nums; margin-top: 22px; letter-spacing: -4px; }
+#num .ar { font-weight: 600; font-size: 88px; margin-top: 14px; }
+#num .en { font-weight: 600; font-size: 60px; line-height: 1.15; margin-top: 4px; }
+</style></head>
+<body>
+<div id="stage" data-composition-id="sample" data-start="0" data-duration="5" data-fps="30" data-width="1920" data-height="1080">
+
+  <svg id="chart" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+    <rect id="topRule" x="120" y="108" width="1680" height="6" fill="#16202E"/>
+    <g id="grid"></g>
+    <path id="wash" fill="#E4472B" fill-opacity="0.16" d=""/>
+    <line id="ref" x1="226" y1="360" x2="1070" y2="360" stroke="#16202E" stroke-width="3" stroke-dasharray="3 10" stroke-linecap="round" opacity="0"/>
+    <g id="bars"></g>
+    <polyline id="line" fill="none" stroke="#16202E" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" points=""/>
+    <g id="dots"></g>
+    <circle id="endDot" r="15" fill="#E4472B" opacity="0"/>
+    <g id="gap" opacity="0">
+      <line id="brk" stroke="#E4472B" stroke-width="6" stroke-linecap="butt"/>
+      <line id="cap1" stroke="#E4472B" stroke-width="6"/>
+      <line id="cap2" stroke="#E4472B" stroke-width="6"/>
+    </g>
+    <line x1="190" y1="880" x2="1070" y2="880" stroke="#16202E" stroke-width="4"/>
+    <g data-layout-ignore>
+      <text id="cap1t" class="mono" x="200" y="318">ENERGY USE BY DISTRICT</text>
+      <text id="cap2t" class="mono" x="200" y="318" opacity="0">CITY ENERGY USE, INDEX (START = 100)</text>
+      <text id="xa" class="mono" x="226" y="924" text-anchor="middle" opacity="0">JAN</text>
+      <text id="xb" class="mono" x="996" y="924" text-anchor="middle" opacity="0">DEC</text>
+      <text id="endLbl" class="mono" x="996" y="0" text-anchor="middle" opacity="0" style="fill:#E4472B;font-weight:700">60</text>
+    </g>
+  </svg>
+
+  <div id="title" class="col">
+    <div id="tAr" class="ar" dir="rtl" lang="ar">مدينة ذكية</div>
+    <div id="tEn" class="en" dir="ltr">Smart City</div>
+  </div>
+
+  <div id="num" class="col" style="opacity:0">
+    <div id="numRule"></div>
+    <div id="numVal" dir="ltr"><span id="n">40</span>%</div>
+    <div id="nAr" class="ar" dir="rtl" lang="ar">طاقة أقل</div>
+    <div id="nEn" class="en" dir="ltr">less energy</div>
+  </div>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script>
+    (function () {
+      var NS = "http://www.w3.org/2000/svg";
+      var Y0 = 880, K = 5.2, X0 = 200, PITCH = 70, BW = 52, N = 12;
+      var U = [36, 50, 65, 90, 58, 81, 100, 69, 46, 63, 40, 29];     // district bars
+      var L = [100, 99, 97, 94, 90, 85, 79, 74, 70, 66, 63, 60];     // energy index
+      var MAIN = "#2F5D8A", SOFT = "#A9BDD3";
+      var $ = function (id) { return document.getElementById(id); };
+      function mk(tag, attrs, parent) {
+        var e = document.createElementNS(NS, tag);
+        for (var k in attrs) e.setAttribute(k, attrs[k]);
+        parent.appendChild(e); return e;
+      }
+      function cx(i) { return X0 + 26 + PITCH * i; }
+      function ly(i) { return Y0 - L[i] * K; }
+      var yRef = Y0 - 100 * K;
+
+      // grid and ticks
+      var gridLines = [];
+      [0, 25, 50, 75, 100].forEach(function (v) {
+        var y = Y0 - v * K;
+        var g = mk("g", { opacity: 0 }, $("grid"));
+        if (v > 0) mk("line", { x1: 190, x2: 1070, y1: y, y2: y, stroke: "#D8D0BE", "stroke-width": 2 }, g);
+        var t = mk("text", { x: 164, y: y + 9, "text-anchor": "end", "class": "mono" }, g);
+        t.textContent = v; g.setAttribute("data-layout-ignore", "");
+        gridLines.push(g);
+      });
+
+      // bars, dots
+      var S = { m: 0, head: 0, dots: 0 };
+      var bars = [], rects = [], dots = [];
+      for (var i = 0; i < N; i++) {
+        bars.push({ g: 0 });
+        rects.push(mk("rect", { fill: U[i] >= 80 ? MAIN : SOFT }, $("bars")));
+        dots.push(mk("circle", { fill: MAIN, stroke: "#F5F0E6", "stroke-width": 3 }, $("dots")));
+      }
+      function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+      function lerp(a, b, t) { return a + (b - a) * t; }
+
+      function draw() {
+        var m = S.m, head = S.head, i, tops = [];
+        var w = BW - 46 * m;
+        var dr = 10 * clamp((m - 0.4) / 0.6, 0, 1);
+        for (i = 0; i < N; i++) {
+          var top = lerp(Y0 - U[i] * K * bars[i].g, ly(i), m);
+          tops.push(top);
+          var fade = 1 - clamp((head - (i - 0.6)) / 0.6, 0, 1);
+          var r = rects[i];
+          r.setAttribute("x", (cx(i) - w / 2).toFixed(2));
+          r.setAttribute("width", w.toFixed(2));
+          r.setAttribute("y", top.toFixed(2));
+          r.setAttribute("height", Math.max(0, Y0 - top).toFixed(2));
+          r.setAttribute("opacity", fade.toFixed(3));
+          dots[i].setAttribute("cx", cx(i)); dots[i].setAttribute("cy", top.toFixed(2));
+          dots[i].setAttribute("r", dr.toFixed(2));
+        }
+        // line up to head
+        var pts = [], k = Math.floor(head), hv = L[0], hx = cx(0), hy = ly(0);
+        if (head > 0) {
+          for (i = 0; i <= k && i < N; i++) pts.push([cx(i), ly(i)]);
+          if (k < N - 1) {
+            var f = head - k;
+            hx = lerp(cx(k), cx(k + 1), f); hy = lerp(ly(k), ly(k + 1), f);
+            hv = lerp(L[k], L[k + 1], f);
+            pts.push([hx, hy]);
+          } else { hx = cx(N - 1); hy = ly(N - 1); hv = L[N - 1]; }
+          $("line").setAttribute("points", pts.map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" "));
+          var poly = [[cx(0), yRef], [hx, yRef]].concat(pts.slice().reverse());
+          $("wash").setAttribute("d", "M" + poly.map(function (p) { return p[0].toFixed(1) + " " + p[1].toFixed(1); }).join(" L") + " Z");
+        } else {
+          $("line").setAttribute("points", ""); $("wash").setAttribute("d", "");
+        }
+        // gap bracket beside the head
+        var bx = hx + 28;
+        $("brk").setAttribute("x1", bx); $("brk").setAttribute("x2", bx);
+        $("brk").setAttribute("y1", yRef); $("brk").setAttribute("y2", hy.toFixed(1));
+        $("cap1").setAttribute("x1", bx - 14); $("cap1").setAttribute("x2", bx + 3);
+        $("cap1").setAttribute("y1", yRef); $("cap1").setAttribute("y2", yRef);
+        $("cap2").setAttribute("x1", bx - 14); $("cap2").setAttribute("x2", bx + 3);
+        $("cap2").setAttribute("y1", hy.toFixed(1)); $("cap2").setAttribute("y2", hy.toFixed(1));
+        // end dot, label
+        $("endDot").setAttribute("cx", cx(N - 1)); $("endDot").setAttribute("cy", ly(N - 1));
+        $("endLbl").setAttribute("y", ly(N - 1) + 56);
+        $("n").textContent = Math.round(100 - hv);
+      }
+
+      var tl = gsap.timeline({ paused: true });
+      draw();
+
+      // frame: rule, grid
+      tl.from("#topRule", { attr: { width: 0 }, duration: 0.8, ease: "expo.out" }, 0);
+      gridLines.forEach(function (g, i) { tl.to(g, { opacity: 1, duration: 0.4, ease: "power1.out" }, 0.1 + i * 0.06); });
+      tl.from("#cap1t", { opacity: 0, duration: 0.4 }, 0.3);
+
+      // scene 1: the city as a bar chart of its districts
+      bars.forEach(function (b, i) {
+        tl.to(b, { g: 1, duration: 0.6, ease: "expo.out", onUpdate: draw }, 0.3 + i * 0.05);
+      });
+      tl.from("#tAr", { opacity: 0, y: 40, duration: 0.7, ease: "expo.out" }, 0.25);
+      tl.from("#tEn", { opacity: 0, y: 40, duration: 0.7, ease: "expo.out" }, 0.38);
+
+      // exit scene 1 text, bars narrow into the dots of a line
+      tl.to(["#tAr", "#tEn"], { opacity: 0, y: -30, duration: 0.3, ease: "power2.in" }, 2.1);
+      tl.to("#cap1t", { opacity: 0, duration: 0.25 }, 2.1);
+      tl.to(S, { m: 1, duration: 0.5, ease: "power2.inOut", onUpdate: draw }, 2.1);
+      tl.to("#cap2t", { opacity: 1, duration: 0.4 }, 2.4);
+      tl.to(["#xa", "#xb"], { opacity: 1, duration: 0.4 }, 2.5);
+      tl.to("#ref", { opacity: 1, duration: 0.4 }, 2.5);
+
+      // scene 2: the line falls away from the start level, the gap is measured
+      tl.set("#gap", { opacity: 1 }, 2.6);
+      tl.to(S, { head: N - 1, duration: 0.8, ease: "power2.inOut", onUpdate: draw }, 2.6);
+      tl.to("#endDot", { opacity: 1, duration: 0.25 }, 3.35);
+      tl.to("#endLbl", { opacity: 1, duration: 0.3 }, 3.5);
+
+      // the number
+      tl.set("#num", { opacity: 1 }, 2.35);
+      tl.from("#numRule", { scaleX: 0, duration: 0.5, ease: "expo.out" }, 2.35);
+      tl.from("#numVal", { opacity: 0, y: 40, duration: 0.7, ease: "expo.out" }, 2.4);
+      tl.from("#nAr", { opacity: 0, y: 40, duration: 0.7, ease: "expo.out" }, 2.55);
+      tl.from("#nEn", { opacity: 0, y: 40, duration: 0.7, ease: "expo.out" }, 2.65);
+
+      tl.set({}, {}, 5);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["sample"] = tl;
+    })();
+  </script>
+</div>
+</body></html>

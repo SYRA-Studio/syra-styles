@@ -1,0 +1,12 @@
+# Styles kept out until their photo licences are checked (held.txt)
+styles/engraving-collage/
+styles/rewind-collage/
+styles/statue-sticker-pop/
+styles/night-collage/
+styles/grunge-poster/
+styles/studio-card-showcase/
+styles/statue-editorial/
+_all/
+convert-*/
+*.part.mp4
+conversion.json

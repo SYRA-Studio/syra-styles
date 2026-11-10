@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><style>
+@font-face { font-family: "Montserrat"; src: url("fonts/montserrat-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+@font-face { font-family: "Plex Arabic"; src: url("fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2") format("woff2"); font-weight: 500; font-display: block; }
+@font-face { font-family: "Plex Arabic"; src: url("fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2") format("woff2"); font-weight: 700; font-display: block; }
+
+html, body, #stage { margin: 0; padding: 0; width: 1920px; height: 1080px; overflow: hidden; background: #141B34; }
+#stage { position: relative; }
+#city { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; display: block; }
+#city polygon { shape-rendering: geometricPrecision; stroke-linejoin: round; }
+
+/* Text column: right-aligned on a 120 px margin. Every line lives in its own mask and only rises or sinks. */
+.lockup { position: absolute; right: 120px; text-align: right; }
+.mask { overflow: hidden; display: block; }
+.line { display: block; white-space: nowrap; }
+
+#title-lockup { top: 392px; }
+.ar-title { font: 700 110px/1.4 "Plex Arabic", sans-serif; color: #F4F6FF; }
+.en-title { font: 800 96px/1.25 "Montserrat", sans-serif; color: #F4F6FF; }
+
+#number-lockup { top: 362px; visibility: hidden; }
+.figure { font: 800 200px/1.02 "Montserrat", sans-serif; color: #F4F6FF; font-variant-numeric: tabular-nums; }
+.ar-sub { font: 500 64px/1.45 "Plex Arabic", sans-serif; color: #8E98C2; }
+.en-sub { font: 500 54px/1.35 "Montserrat", sans-serif; color: #8E98C2; }
+</style></head>
+<body>
+<div id="stage" data-composition-id="sample" data-start="0" data-duration="5" data-fps="30" data-width="1920" data-height="1080">
+
+  <svg id="city" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+    <g id="world">
+      <g id="ground"></g>
+      <g id="objects"></g>
+    </g>
+  </svg>
+
+  <div id="title-lockup" class="lockup">
+    <div class="mask" data-layout-allow-overflow><div id="title-ar" class="line ar-title" dir="rtl" lang="ar">مدينة ذكية</div></div>
+    <div class="mask" data-layout-allow-overflow><div id="title-en" class="line en-title" dir="ltr">Smart City</div></div>
+  </div>
+
+  <div id="number-lockup" class="lockup">
+    <div class="mask" data-layout-allow-overflow><div id="figure" class="line figure" dir="ltr">0%</div></div>
+    <div class="mask" data-layout-allow-overflow><div id="sub-ar" class="line ar-sub" dir="rtl" lang="ar">طاقة أقل</div></div>
+    <div class="mask" data-layout-allow-overflow><div id="sub-en" class="line en-sub" dir="ltr">less energy</div></div>
+  </div>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script>
+    (function () {
+      /* ---------- palette (DESIGN.md) ---------- */
+      var MAIN   = { top: "#8FB3FF", left: "#4F7BE0", right: "#3559B0" };
+      var ACCENT = { top: "#FFC24B", left: "#E8A52A", right: "#C4861A" }; /* the recolour rule applied to the accent */
+      var TILE   = { top: "#232C52", left: "#1C2445", right: "#181F3C", rim: "#2F3A69" };
+      var GROUND = "#141B34";
+      var UNLIT  = { left: "#3559B0", right: "#232C52" };
+      var LIT    = "#FFC24B";
+
+      /* ---------- projection ---------- */
+      var U = 52, COS = Math.cos(Math.PI / 6), SIN = Math.sin(Math.PI / 6);
+      var OX = 640, OY = 313, L = 12, THICK = 0.4;
+      function pt(x, y, z) {
+        return ((x - y) * COS * U).toFixed(2) + "," + ((x + y) * SIN * U - z * U).toFixed(2);
+      }
+      var NS = "http://www.w3.org/2000/svg", uid = 0;
+      function poly(parent, fill, opacity) {
+        var el = document.createElementNS(NS, "polygon");
+        el.setAttribute("id", "p" + (uid++));
+        el.setAttribute("fill", fill);
+        if (opacity !== undefined) el.setAttribute("fill-opacity", opacity);
+        else { el.setAttribute("stroke", fill); el.setAttribute("stroke-width", "0.7"); } /* closes hairline seams; same colour, not an outline */
+        parent.appendChild(el);
+        return el;
+      }
+      function group(parent) {
+        var g = document.createElementNS(NS, "g");
+        parent.appendChild(g);
+        return g;
+      }
+      function setPts(el, pts) { el.setAttribute("points", pts.join(" ")); }
+      function hide(el) { el.setAttribute("points", ""); }
+
+      /* ---------- seeded random, for the window pattern only ---------- */
+      var seed = 40;
+      function rnd() { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; }
+
+      /* ---------- world layers ---------- */
+      var world = document.getElementById("world");
+      world.setAttribute("transform", "translate(" + OX + " " + OY + ")");
+      var groundG = document.getElementById("ground"), objectsG = document.getElementById("objects");
+
+      /* ---------- base tile ---------- */
+      var tile = { lx: 0, ly: 0 };
+      var tileShadow = poly(groundG, "#000", 0.2),
+          tileLeft = poly(groundG, TILE.left), tileRight = poly(groundG, TILE.right), tileTop = poly(groundG, TILE.top);
+
+      /* flat ground marks: roads and the ten sockets of the energy row. Rectangles in x0,y0,x1,y1 */
+      var ROADS = [
+        [1, 2, 9, 3], [1, 9, 9, 10], [1, 3, 2, 9], [8, 3, 9, 9]    /* ring road */
+      ];
+      var CELL_X = 10.5;
+      var SOCKETS = [];
+      for (var s = 0; s < 10; s++) SOCKETS.push([CELL_X + 0.1, 1.1 + s, CELL_X + 0.9, 1.9 + s]);
+      var marks = ROADS.concat(SOCKETS).map(function (r) { return { r: r, el: poly(groundG, GROUND) }; });
+      var rimX = poly(groundG, TILE.rim), rimY = poly(groundG, TILE.rim);
+      var shadowsG = group(groundG);
+
+      function drawTile() {
+        var a = tile.lx, b = tile.ly, off = 0.55;
+        if (a < 0.01 || b < 0.01) {
+          [tileShadow, tileLeft, tileRight, tileTop, rimX, rimY].forEach(hide);
+          marks.forEach(function (m) { hide(m.el); });
+          return;
+        }
+        setPts(tileShadow, [pt(a, 0, -THICK), pt(a + off, 0, -THICK), pt(a + off, b, -THICK), pt(a, b, -THICK)]);
+        setPts(tileTop, [pt(0, 0, 0), pt(a, 0, 0), pt(a, b, 0), pt(0, b, 0)]);
+        setPts(tileLeft, [pt(0, b, 0), pt(a, b, 0), pt(a, b, -THICK), pt(0, b, -THICK)]);
+        setPts(tileRight, [pt(a, 0, 0), pt(a, b, 0), pt(a, b, -THICK), pt(a, 0, -THICK)]);
+        var w = 0.09;
+        setPts(rimX, [pt(a - w, 0, 0), pt(a, 0, 0), pt(a, b, 0), pt(a - w, b, 0)]);
+        setPts(rimY, [pt(0, b - w, 0), pt(a, b - w, 0), pt(a, b, 0), pt(0, b, 0)]);
+        marks.forEach(function (m) {
+          var x0 = Math.min(m.r[0], a), y0 = Math.min(m.r[1], b), x1 = Math.min(m.r[2], a), y1 = Math.min(m.r[3], b);
+          if (x1 - x0 < 0.01 || y1 - y0 < 0.01) hide(m.el);
+          else setPts(m.el, [pt(x0, y0, 0), pt(x1, y0, 0), pt(x1, y1, 0), pt(x0, y1, 0)]);
+        });
+      }
+
+      /* ---------- things on the tile ---------- */
+      var objs = [];
+
+      function addBox(o) {
+        o.kind = "box"; o.h = 0; o.tones = o.tones || MAIN; o.z = 0;
+        o.windows = [];
+        objs.push(o);
+        return o;
+      }
+      function addTree(x, y, size, H) {
+        var o = { kind: "tree", x: x, y: y, w: size, d: size, H: H, h: 0 };
+        objs.push(o);
+        return o;
+      }
+
+      /* Paint order: anything wholly behind another footprint on either ground axis goes first. */
+      function sortObjects(list) {
+        var out = [], rest = list.slice();
+        while (rest.length) {
+          var picked = -1;
+          for (var i = 0; i < rest.length && picked < 0; i++) {
+            var a = rest[i], blocked = false;
+            for (var j = 0; j < rest.length; j++) {
+              if (i === j) continue;
+              var b = rest[j];
+              if ((b.x + b.w <= a.x || b.y + b.d <= a.y) && !(a.x + a.w <= b.x || a.y + a.d <= b.y)) { blocked = true; break; }
+            }
+            if (!blocked) picked = i;
+          }
+          if (picked < 0) picked = 0;
+          out.push(rest.splice(picked, 1)[0]);
+        }
+        return out;
+      }
+
+      function buildObject(o) {
+        o.shadow = poly(shadowsG, "#000", 0.2);
+        o.g = group(objectsG);
+        if (o.kind === "box") {
+          o.top = poly(o.g, o.tones.top); o.left = poly(o.g, o.tones.left); o.right = poly(o.g, o.tones.right);
+          if (o.win) makeWindows(o);
+        } else {
+          o.left = poly(o.g, MAIN.left); o.right = poly(o.g, MAIN.right);
+        }
+      }
+
+      /* windows sit in floors counted down from the roof, so they rise with the block out of the ground */
+      function makeWindows(o) {
+        var P = 1, WW = 0.56, WH = 0.56;
+        var rows = Math.floor((o.H - 0.45) / P);
+        [["left", o.w], ["right", o.d]].forEach(function (face) {
+          var span = face[1], cols = Math.floor(span / P), m = (span - cols * P) / 2 + (P - WW) / 2;
+          for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
+            var el = poly(o.g, UNLIT[face[0]]);
+            o.windows.push({ el: el, face: face[0], off: 0.3 + r * P, a: m + c * P, ww: WW, wh: WH });
+          }
+        });
+      }
+
+      function drawObject(o) {
+        var h = o.h, x = o.x, y = o.y, w = o.w, d = o.d, z = o.z || 0;
+        if (h < 0.01) {
+          hide(o.shadow); hide(o.left); hide(o.right);
+          if (o.top) hide(o.top);
+          if (o.windows) o.windows.forEach(function (k) { hide(k.el); });
+          return;
+        }
+        /* flat contact shadow: the footprint pushed along +x, which is the lower right on screen */
+        if (z === 0) {
+          var len = Math.min(h * 0.34, 2.2), x1 = Math.min(x + w + len, L - 0.09), xs = x + (o.kind === "tree" ? w / 2 : 0);
+          setPts(o.shadow, [pt(xs, y, 0), pt(x1, y, 0), pt(x1, y + d, 0), pt(xs, y + d, 0)]);
+        }
+        if (o.kind === "tree") {
+          var ax = x + w / 2, ay = y + d / 2;
+          setPts(o.left, [pt(x, y + d, 0), pt(x + w, y + d, 0), pt(ax, ay, h)]);
+          setPts(o.right, [pt(x + w, y, 0), pt(x + w, y + d, 0), pt(ax, ay, h)]);
+          return;
+        }
+        var t = z + h;
+        setPts(o.top, [pt(x, y, t), pt(x + w, y, t), pt(x + w, y + d, t), pt(x, y + d, t)]);
+        setPts(o.left, [pt(x, y + d, t), pt(x + w, y + d, t), pt(x + w, y + d, z), pt(x, y + d, z)]);
+        setPts(o.right, [pt(x + w, y, t), pt(x + w, y + d, t), pt(x + w, y + d, z), pt(x + w, y, z)]);
+        o.windows.forEach(function (k) {
+          var zt = t - k.off, zb = Math.max(zt - k.wh, z);
+          if (zt <= z + 0.02) { hide(k.el); return; }
+          if (k.face === "left") {
+            var yy = y + d;
+            setPts(k.el, [pt(x + k.a, yy, zt), pt(x + k.a + k.ww, yy, zt), pt(x + k.a + k.ww, yy, zb), pt(x + k.a, yy, zb)]);
+          } else {
+            var xx = x + w;
+            setPts(k.el, [pt(xx, y + k.a, zt), pt(xx, y + k.a + k.ww, zt), pt(xx, y + k.a + k.ww, zb), pt(xx, y + k.a, zb)]);
+          }
+        });
+      }
+
+      /* the city: tall at the back, stepping down to the front, so nothing hides anything important */
+      var A  = addBox({ x: 2.5, y: 3.5, w: 2, d: 2, H: 7,   win: true });
+      var B  = addBox({ x: 5.5, y: 3.5, w: 2, d: 2, H: 4.5, win: true });
+      var C  = addBox({ x: 2.5, y: 6.5, w: 2, d: 2, H: 5.5, win: true });
+      var D  = addBox({ x: 5.5, y: 6.5, w: 2, d: 2, H: 2.5, win: true });
+      var E  = addBox({ x: 6.5, y: 0.5, w: 2, d: 1, H: 1.5, win: true });
+      var trees = [
+        addTree(7,   10.6, 0.8, 1.15),
+        addTree(3.4, 10.6, 0.8, 0.95),
+        addTree(1.7, 10.6, 0.8, 1.15),
+        addTree(0.1, 10.1, 0.8, 0.95),
+        addTree(0.1, 8.1,  0.8, 1.15),
+        addTree(10.9, 0.15, 0.8, 1.05)
+      ];
+      var cells = [];
+      for (var i = 0; i < 10; i++) {
+        cells.push(addBox({ x: CELL_X + 0.1, y: 1.1 + i, w: 0.8, d: 0.8, H: 1.2, tones: ACCENT, win: false }));
+      }
+
+      var ordered = sortObjects(objs);
+      ordered.forEach(buildObject);
+
+      /* the tall tower's stepped crown, painted straight after it */
+      var crown = { kind: "box", x: 3, y: 4, w: 1, d: 1, H: 1, h: 0, z: 7, windows: [], tones: MAIN };
+      crown.shadow = poly(shadowsG, "#000", 0);
+      crown.g = group(objectsG);
+      A.g.parentNode.insertBefore(crown.g, A.g.nextSibling);
+      crown.top = poly(crown.g, MAIN.top); crown.left = poly(crown.g, MAIN.left); crown.right = poly(crown.g, MAIN.right);
+
+      /* ---------- the car on the ring road: a little yellow cube on the ground layer ---------- */
+      var ROUTE = [[8.5, 2.5], [8.5, 9.5], [1.5, 9.5], [1.5, 2.5], [8.5, 2.5]];
+      var car = { s: 0, h: 0 };
+      var carG = group(groundG);
+      var carShadow = poly(carG, "#000", 0.2), carLeft = poly(carG, ACCENT.left), carRight = poly(carG, ACCENT.right), carTop = poly(carG, ACCENT.top);
+      function drawCar() {
+        var s = car.s, x = ROUTE[0][0], y = ROUTE[0][1];
+        for (var i = 0; i < ROUTE.length - 1; i++) {
+          var p = ROUTE[i], q = ROUTE[i + 1], len = Math.abs(q[0] - p[0]) + Math.abs(q[1] - p[1]);
+          if (s <= len) { var f = s / len; x = p[0] + (q[0] - p[0]) * f; y = p[1] + (q[1] - p[1]) * f; break; }
+          s -= len;
+        }
+        var r = 0.22, H = car.h, x0 = x - r, x1 = x + r, y0 = y - r, y1 = y + r;
+        if (H < 0.01) { hide(carShadow); hide(carTop); hide(carLeft); hide(carRight); return; }
+        setPts(carShadow, [pt(x0, y0, 0), pt(x1 + 0.12, y0, 0), pt(x1 + 0.12, y1, 0), pt(x0, y1, 0)]);
+        setPts(carTop, [pt(x0, y0, H), pt(x1, y0, H), pt(x1, y1, H), pt(x0, y1, H)]);
+        setPts(carLeft, [pt(x0, y1, H), pt(x1, y1, H), pt(x1, y1, 0), pt(x0, y1, 0)]);
+        setPts(carRight, [pt(x1, y0, H), pt(x1, y1, H), pt(x1, y1, 0), pt(x1, y0, 0)]);
+      }
+
+      /* first picture: everything flat, nothing shown */
+      drawTile();
+      objs.forEach(drawObject);
+      drawObject(crown);
+      drawCar();
+
+      /* ---------- timeline ---------- */
+      var tl = gsap.timeline({ paused: true });
+
+      /* camera: a very slow drift along one ground axis, for the whole five seconds */
+      var cam = { k: 0 };
+      tl.to(cam, { k: 36, duration: 5, ease: "none", onUpdate: function () {
+        world.setAttribute("transform", "translate(" + (OX - cam.k * COS).toFixed(2) + " " + (OY + cam.k * SIN).toFixed(2) + ")");
+      } }, 0);
+
+      /* the tile unrolls along both ground axes */
+      tl.to(tile, { lx: L, ly: L, duration: 0.5, ease: "expo.out", onUpdate: drawTile }, 0);
+
+      /* blocks grow up out of the ground, back to front */
+      function grow(o, at, dur, ease) {
+        tl.to(o, { h: o.H, duration: dur || 0.5, ease: ease || "back.out(1.2)", onUpdate: function () { drawObject(o); } }, at);
+      }
+      var t = 0.18, STEP = 0.07;
+      [A, B, C, E, D].forEach(function (o, n) { grow(o, t + n * STEP); });
+      grow(crown, 0.72, 0.35);
+      t = 0.62;
+      trees.slice().reverse().forEach(function (o, n) { grow(o, t + n * 0.05, 0.4); });
+      t = 0.98;
+      cells.forEach(function (o, n) { grow(o, t + n * 0.05, 0.45); });
+
+      /* windows light */
+      var allWin = [];
+      [A, B, C, D].forEach(function (o) { o.windows.forEach(function (k) { allWin.push(k); }); });
+      var lit = [];
+      allWin.forEach(function (k) {
+        if (rnd() < 0.42) { lit.push(k); tl.set(k.el, { attr: { fill: LIT, stroke: LIT } }, 0.85 + rnd() * 1.15); }
+      });
+
+      /* title */
+      tl.fromTo("#title-ar", { yPercent: 105 }, { yPercent: 0, duration: 0.6, ease: "expo.out" }, 0.3);
+      tl.fromTo("#title-en", { yPercent: 105 }, { yPercent: 0, duration: 0.6, ease: "expo.out" }, 0.38);
+      tl.to("#title-en", { yPercent: 105, duration: 0.2, ease: "power2.in" }, 2.0);
+      tl.to("#title-ar", { yPercent: 105, duration: 0.2, ease: "power2.in" }, 2.0);
+
+      tl.set("#title-lockup", { visibility: "hidden" }, 2.2);
+
+      /* the number */
+      var figure = document.getElementById("figure");
+      tl.set("#number-lockup", { visibility: "visible" }, 2.2);
+      tl.fromTo("#figure", { yPercent: 105 }, { yPercent: 0, duration: 0.5, ease: "expo.out" }, 2.2);
+      tl.fromTo("#sub-ar", { yPercent: 105 }, { yPercent: 0, duration: 0.5, ease: "expo.out" }, 2.32);
+      tl.fromTo("#sub-en", { yPercent: 105 }, { yPercent: 0, duration: 0.5, ease: "expo.out" }, 2.4);
+      var num = { v: 0 };
+      tl.to(num, { v: 40, duration: 1.0, ease: "none", onUpdate: function () { figure.textContent = Math.round(num.v) + "%"; } }, 2.3);
+
+      /* four of the ten energy blocks sink back as the number climbs, and part of the city's lights go out with them */
+      var perStep = Math.round(lit.length * 0.1);
+      for (var n = 0; n < 4; n++) {
+        (function (o, n) {
+          var at = 2.27 + n * 0.25;
+          tl.to(o, { h: 0, duration: 0.3, ease: "power2.inOut", onUpdate: function () { drawObject(o); } }, at);
+          for (var j = 0; j < perStep; j++) {
+            var k = lit[(n * perStep + j) * 2 % lit.length];
+            tl.set(k.el, { attr: { fill: UNLIT[k.face], stroke: UNLIT[k.face] } }, at + 0.03 * j);
+          }
+        })(cells[n], n);
+      }
+
+      /* something small stays alive: two more windows come on while the number holds, then only the car moves */
+      var dark = allWin.filter(function (k) { return lit.indexOf(k) < 0; });
+      tl.set(dark[3].el, { attr: { fill: LIT, stroke: LIT } }, 3.8);
+      tl.set(dark[dark.length - 5].el, { attr: { fill: LIT, stroke: LIT } }, 4.25);
+
+      /* the car keeps going */
+      tl.to(car, { s: 14.8, duration: 4.65, ease: "none", onUpdate: drawCar }, 0.35);
+      tl.to(car, { h: 0.3, duration: 0.3, ease: "back.out(1.2)", onUpdate: drawCar }, 0.35);
+
+      tl.set({}, {}, 5);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["sample"] = tl;
+    })();
+  </script>
+</div>
+</body></html>

@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<style>
+@font-face { font-family: "Urbanist"; src: url("fonts/urbanist-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+@font-face { font-family: "Plex Arabic"; src: url("fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2") format("woff2"); font-weight: 500; font-display: block; }
+@font-face { font-family: "Plex Arabic"; src: url("fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2") format("woff2"); font-weight: 600; font-display: block; }
+html, body, #stage { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #07050F; }
+#stage { position: relative; }
+#wash { position: absolute; inset: 0; background:
+  radial-gradient(ellipse 70% 55% at 50% 112%, rgba(15,180,224,.07), rgba(15,180,224,0) 100%),
+  radial-gradient(circle 700px at 96% -4%, rgba(208,19,138,.05), rgba(208,19,138,0) 100%); }
+svg#art { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+.ar { direction: rtl; font-family: "Plex Arabic", sans-serif; line-height: 1.45; white-space: nowrap; }
+.en { direction: ltr; font-family: "Urbanist", sans-serif; line-height: 1.1; white-space: nowrap; }
+#title { position: absolute; left: 0; width: 1920px; top: 125px; text-align: center; }
+#tAr { font-size: 148px; font-weight: 600; color: #F2FBFF;
+  text-shadow: 0 0 4px rgba(230,253,255,.9), 0 0 18px rgba(15,180,224,.7), 0 0 46px rgba(15,180,224,.45); opacity: 0; }
+#tEn { font-size: 128px; font-weight: 600; color: #A9C4F0; margin-top: 6px;
+  text-shadow: 0 0 4px rgba(169,196,240,.7), 0 0 18px rgba(15,180,224,.5), 0 0 40px rgba(15,180,224,.3); opacity: 0; }
+#num { position: absolute; left: 350px; width: 600px; top: 440px; text-align: center; direction: ltr;
+  font-family: "Urbanist", sans-serif; font-weight: 800; font-size: 200px; line-height: 1; color: #FFE4F5;
+  text-shadow: 0 0 4px rgba(255,228,245,.9), 0 0 18px rgba(255,63,180,.75), 0 0 46px rgba(208,19,138,.6); opacity: 0; }
+#words { position: absolute; right: 230px; top: 385px; text-align: right; }
+#wAr { font-size: 124px; font-weight: 600; color: #F2FBFF;
+  text-shadow: 0 0 4px rgba(230,253,255,.9), 0 0 18px rgba(15,180,224,.7), 0 0 46px rgba(15,180,224,.45); opacity: 0; }
+#wEn { font-size: 108px; font-weight: 600; color: #A9C4F0; margin-top: 4px;
+  text-shadow: 0 0 4px rgba(169,196,240,.7), 0 0 18px rgba(15,180,224,.5), 0 0 40px rgba(15,180,224,.3); opacity: 0; }
+</style></head>
+<body>
+<div id="stage" data-composition-id="sample" data-start="0" data-duration="5" data-fps="30" data-width="1920" data-height="1080">
+  <div id="wash"></div>
+  <svg id="art" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="fH" filterUnits="userSpaceOnUse" x="-200" y="-200" width="2320" height="1480"><feGaussianBlur stdDeviation="16"/></filter>
+      <filter id="fS" filterUnits="userSpaceOnUse" x="-200" y="-200" width="2320" height="1480"><feGaussianBlur stdDeviation="9"/></filter>
+      <filter id="fB" filterUnits="userSpaceOnUse" x="-200" y="-200" width="2320" height="1480"><feGaussianBlur stdDeviation="2.2"/></filter>
+    </defs>
+    <g id="gGlass" fill="none" stroke-linecap="round" stroke-linejoin="round"></g>
+    <g id="gHalo" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#fH)"></g>
+    <g id="gBody" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#fB)"></g>
+    <g id="gCore" fill="none" stroke-linecap="round" stroke-linejoin="round"></g>
+    <g id="gWH" fill="none" stroke-linecap="round" filter="url(#fH)"></g>
+    <g id="gWB" fill="none" stroke-linecap="round" filter="url(#fB)"></g>
+    <g id="gWC" fill="none" stroke-linecap="round"></g>
+    <g id="ringGlass" fill="none" opacity="0"></g>
+    <g id="ringHalo" fill="none" stroke-linecap="round" filter="url(#fH)" opacity="0"></g>
+    <g id="ringBody" fill="none" stroke-linecap="round" filter="url(#fB)" opacity="0"></g>
+    <g id="ringCore" fill="none" stroke-linecap="round" opacity="0"></g>
+    <g id="spark" opacity="0"></g>
+    <g id="topDot" opacity="0"></g>
+  </svg>
+  <div id="title"><div id="tAr" class="ar" dir="rtl" lang="ar">مدينة ذكية</div><div id="tEn" class="en" dir="ltr">Smart City</div></div>
+  <div id="num" dir="ltr">0%</div>
+  <div id="words"><div id="wAr" class="ar" dir="rtl" lang="ar">طاقة أقل</div><div id="wEn" class="en" dir="ltr">less energy</div></div>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script>
+  (function () {
+    var NS = "http://www.w3.org/2000/svg";
+    var tl = gsap.timeline({ paused: true });
+    function $(id) { return document.getElementById(id); }
+    function mk(parent, tag, attrs) {
+      var e = document.createElementNS(NS, tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      parent.appendChild(e); return e;
+    }
+    var C = { glass: "#2B2447", ch: "#0FB4E0", cb: "#3DF0FF", cc: "#E6FDFF", mh: "#D0138A", mb: "#FF3FB4", mc: "#FFE4F5" };
+
+    // ---- skyline tubes -------------------------------------------------
+    var B = [[150,290,820],[310,440,720],[460,580,850],[600,760,650],[780,900,780],[920,1080,700],
+             [1100,1220,830],[1240,1380,670],[1400,1520,800],[1540,1680,740],[1700,1780,860]];
+    var G = 990;
+    var tubes = [{ id: "hz", d: "M100," + G + " H1820", t: 0, dur: 0.9, m: false }];
+    B.forEach(function (b, i) {
+      var d = "M" + b[0] + "," + G + " V" + b[2] + " H" + b[1] + " V" + G;
+      if (i === 5) d = "M920," + G + " V700 H1000 V740 H1080 V" + G;
+      if (i === 7) d = "M1240," + G + " V690 L1310,660 L1380,690 V" + G;
+      tubes.push({ id: "b" + i, d: d, t: 0.15 + i * 0.1, dur: 0.6, m: false });
+    });
+    tubes.push({ id: "sp", d: "M220,820 V712", t: 1.2, dur: 0.3, m: false });
+    function arc(cx, cy, r, a) {
+      var s = Math.sin(a), c = Math.cos(a);
+      return "M" + (cx - r * s).toFixed(1) + "," + (cy - r * c).toFixed(1) + " A" + r + "," + r + " 0 0 1 " + (cx + r * s).toFixed(1) + "," + (cy - r * c).toFixed(1);
+    }
+    var A = 55 * Math.PI / 180;
+    tubes.push({ id: "a1", d: arc(220, 700, 42, A), t: 1.4, dur: 0.25, m: true });
+    tubes.push({ id: "a2", d: arc(220, 700, 76, A), t: 1.58, dur: 0.25, m: true });
+    var layers = {};
+    tubes.forEach(function (T) {
+      var hc = T.m ? C.mh : C.ch, bc = T.m ? C.mb : C.cb, cc = T.m ? C.mc : C.cc;
+      mk($("gGlass"), "path", { d: T.d, stroke: C.glass, "stroke-width": 7 });
+      var set = [];
+      [["gHalo", hc, 34], ["gBody", bc, 11], ["gCore", cc, 4]].forEach(function (L) {
+        set.push(mk($(L[0]), "path", { id: L[0] + "_" + T.id, d: T.d, stroke: L[1], "stroke-width": L[2], "stroke-opacity": L[0] === "gHalo" ? 0.55 : 1, pathLength: 1,
+          "stroke-dasharray": "1 2", "stroke-dashoffset": 1.1 }));
+      });
+      layers[T.id] = set;
+    });
+    tubes.forEach(function (T) {
+      tl.to(layers[T.id], { strokeDashoffset: 0, duration: T.dur, ease: "power2.inOut" }, T.t);
+    });
+
+    // ---- windows (accent) -----------------------------------------------
+    var wins = [];
+    B.forEach(function (b, bi) {
+      var cols = Math.floor((b[1] - b[0] - 30) / 42);
+      for (var r = 0; (b[2] + 48 + r * 56) < 950; r++) {
+        for (var k = 0; k < cols; k++) {
+          if (((bi * 5 + r * 7 + k * 3) % 7) < 2) {
+            var x = b[0] + 24 + k * 42, y = b[2] + 48 + r * 56;
+            var n = wins.length;
+            var a = { d: "M" + x + "," + y + " h20", n: n, t: 0.75 + bi * 0.1 + ((bi * 31 + r * 17 + k * 7) % 9) * 0.07 };
+            a.els = [
+              mk($("gWH"), "path", { d: a.d, stroke: C.mh, "stroke-width": 16, "stroke-opacity": 0.7 }),
+              mk($("gWB"), "path", { d: a.d, stroke: C.mb, "stroke-width": 9 }),
+              mk($("gWC"), "path", { d: a.d, stroke: C.mc, "stroke-width": 4 })
+            ];
+            gsap.set(a.els, { opacity: 0 });
+            wins.push(a);
+          }
+        }
+      }
+    });
+    function ignite(els, t) {
+      [[0, .9], [.06, .1], [.12, 1], [.2, .3], [.27, 1]].forEach(function (s) { tl.set(els, { opacity: s[1] }, t + s[0]); });
+    }
+    function snuff(els, t) {
+      [[0, .35], [.06, 1], [.13, .25], [.2, 0]].forEach(function (s) { tl.set(els, { opacity: s[1] }, t + s[0]); });
+    }
+    wins.forEach(function (w) { ignite(w.els, w.t); });
+
+    // ---- title ---------------------------------------------------------
+    ignite($("tAr"), 0.3);
+    ignite($("tEn"), 0.5);
+
+    // ---- scene change at 2.2: the city goes out, glass stays --------------
+    snuff($("tAr"), 2.2);
+    snuff($("tEn"), 2.28);
+    ["gHalo", "gBody", "gCore", "gWH", "gWB", "gWC"].forEach(function (id, i) { snuff($(id), 2.2 + (i % 3) * 0.04); });
+
+    // ---- ring -----------------------------------------------------------
+    var cx = 650, cy = 540, R = 285;
+    var rd = "M" + cx + "," + (cy - R) + " A" + R + "," + R + " 0 1 1 " + cx + "," + (cy + R) + " A" + R + "," + R + " 0 1 1 " + cx + "," + (cy - R);
+    mk($("ringGlass"), "path", { d: rd, stroke: C.glass, "stroke-width": 7 });
+    tl.set($("ringGlass"), { opacity: 1 }, 2.3);
+    tl.to($("gGlass"), { opacity: 0.55, duration: 0.4 }, 2.3);
+    var rl = [
+      mk($("ringHalo"), "path", { d: rd, stroke: C.ch, "stroke-width": 34, "stroke-opacity": 0.6, pathLength: 1 }),
+      mk($("ringBody"), "path", { d: rd, stroke: C.cb, "stroke-width": 11, pathLength: 1 }),
+      mk($("ringCore"), "path", { d: rd, stroke: C.cc, "stroke-width": 4, pathLength: 1 })
+    ];
+    function dot(g) {
+      mk(g, "circle", { r: 30, fill: C.mh, filter: "url(#fS)" });
+      mk(g, "circle", { r: 11, fill: C.mb, filter: "url(#fB)" });
+      mk(g, "circle", { r: 5, fill: C.mc });
+    }
+    dot($("spark")); dot($("topDot"));
+    var st = { draw: 0, s: 0 };
+    function render() {
+      var len = Math.max(st.draw - st.s, 0.0005);
+      rl.forEach(function (p) {
+        p.setAttribute("stroke-dasharray", len.toFixed(4) + " 3");
+        p.setAttribute("stroke-dashoffset", (-st.s).toFixed(4));
+      });
+      var th = 2 * Math.PI * st.s;
+      $("spark").setAttribute("transform", "translate(" + (cx + R * Math.sin(th)).toFixed(1) + "," + (cy - R * Math.cos(th)).toFixed(1) + ")");
+      $("topDot").setAttribute("transform", "translate(" + cx + "," + (cy - R) + ")");
+      $("num").textContent = Math.round(st.s / 0.4 * 40) + "%";
+    }
+    render();
+    ["ringHalo", "ringBody", "ringCore"].forEach(function (id) { tl.set($(id), { opacity: 1 }, 2.3); });
+    tl.to(st, { draw: 1, duration: 0.6, ease: "power2.inOut", onUpdate: render }, 2.3);
+    tl.to(st, { s: 0.4, duration: 0.65, ease: "power2.inOut", onUpdate: render }, 2.9);
+    ignite($("spark"), 2.88);
+    ignite($("topDot"), 2.88);
+    ignite($("num"), 2.7);
+    ignite($("wAr"), 2.55);
+    ignite($("wEn"), 2.66);
+    // a gentle hum on the lit ring, then rest from 4.5 s
+    tl.to(rl[0], { strokeOpacity: 0.85, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, 4.0);
+
+    window.__timelines = window.__timelines || {};
+    window.__timelines["sample"] = tl;
+    tl.set({}, {}, 5);
+  })();
+  </script>
+</div>
+</body></html>
